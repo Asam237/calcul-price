@@ -6,7 +6,7 @@ const SIZE_ICON = 22;
 const socials = [
   {
     icon: <FaGithub className="text-gray-300" size={SIZE_ICON} />,
-    link: "https://github.com/Asam237/blog-nextjs-mdx",
+    link: "https://github.com/Asam237",
   },
   {
     icon: <FaLinkedin className="text-gray-300" size={SIZE_ICON} />,
@@ -32,7 +32,7 @@ export const Footer = () => (
           className="text-white underline underline-offset-4 font-medium"
           href={"https://abbasali.cm"}
         >
-          Abba Sali.
+          Abba Sali Aboubakar Mamate.
         </Link>
       </p>
     </div>

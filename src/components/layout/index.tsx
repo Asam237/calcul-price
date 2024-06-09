@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { Footer } from "../Footer";
-import Header from "../Header";
 import cn from "clsx";
 import { EuclidUiDisplay } from "@/lib/fonts";
+import Head from "next/head";
 
 interface DefaultLayoutProps extends React.AllHTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -10,10 +10,15 @@ interface DefaultLayoutProps extends React.AllHTMLAttributes<HTMLDivElement> {
 
 export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
-    <div className={cn(EuclidUiDisplay.variable)}>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </div>
+    <>
+      <Head>
+        <title>Calcul du prix total</title>
+      </Head>
+      <div className={cn(EuclidUiDisplay.variable)}>
+        <div className="flex justify-center items-center mt-10">
+          <main>{children}</main>
+        </div>
+      </div>
+    </>
   );
 };
