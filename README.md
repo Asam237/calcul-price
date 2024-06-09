@@ -1,6 +1,6 @@
 ## Introduction
 
-Ce projet facilite la création d'un blog en utilisant NextJS et MDX, offrant ainsi une solution pratique pour concevoir et gérer du contenu dynamique de manière efficace.
+Calcul Price
 <br/>
 
 ## Composition
