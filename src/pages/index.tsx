@@ -36,8 +36,11 @@ const Home = () => {
 
   return (
     <DefaultLayout>
+      <div>
+        <img src="/images/logo.jfif" alt="logo" className="w-auto h-14 mx-auto" />
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="text-center py-4 text-2xl">Price calculator</h1>
+        <h1 className="text-center py-4 text-2xl">CAN_IMM Price calculator</h1>
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col">
             <span className="text-xs">
