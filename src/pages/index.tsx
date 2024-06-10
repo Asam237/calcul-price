@@ -37,11 +37,11 @@ const Home = () => {
   return (
     <DefaultLayout>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="text-center py-4 text-2xl">Calcul du prix</h1>
+        <h1 className="text-center py-4 text-2xl">Price calculator</h1>
         <div className="flex flex-col justify-center items-center">
           <div className="flex flex-col">
             <span className="text-xs">
-              moins de 5 ans
+              Less than 5 years
               <span className="bg-gray-300 text-gray-900 px-1 ml-1">
                 82 350 FCFA
               </span>
@@ -55,7 +55,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col mt-4">
             <span className="text-xs">
-              entre 5 et 10 ans
+              5 to 10 years
               <span className="bg-gray-300 text-gray-900 px-1 ml-1">
                 82 350 FCFA
               </span>
@@ -69,7 +69,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col mt-4">
             <span className="text-xs">
-              entre 10 a 15 ans
+              11 to 14 years
               <span className="bg-gray-300 text-gray-900 px-1 ml-1">
                 95 000 FCFA
               </span>
@@ -83,7 +83,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col mt-4">
             <span className="text-xs">
-              plus de 15 ans{" "}
+              15 years and above
               <span className="bg-gray-300 text-gray-900 px-1 ml-1">
                 118 450 FCFA
               </span>
@@ -100,14 +100,14 @@ const Home = () => {
               className="bg-blue-600 mt-4 w-full h-8 p-1 rounded-md text-sm"
               type="submit"
             >
-              calculer
+              Calculate
             </button>
             <button
               className="bg-gray-500 mt-4 w-full h-8 p-1 text-sm rounded-md"
               type="button"
               onClick={() => toClear()}
             >
-              effacer
+              Clear
             </button>
           </div>
           <h1 className="text-center my-4 bg-white text-blue-700 p-2 rounded-md">
@@ -115,7 +115,6 @@ const Home = () => {
           </h1>
         </div>
       </form>
-      <Footer />
     </DefaultLayout>
   );
 };
