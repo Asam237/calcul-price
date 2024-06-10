@@ -20,12 +20,10 @@ const Home = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const price1 = parseInt(data.fieldOne) && parseInt(data.fieldOne) * 82350;
-    const price2 = parseInt(data.fieldTwo) && parseInt(data.fieldTwo) * 82350;
-    const price3 =
-      parseInt(data.fieldThree) && parseInt(data.fieldThree) * 95000;
-    const price4 =
-      parseInt(data.fieldFour) && parseInt(data.fieldFour) * 118450;
+    const price1 = (parseInt(data.fieldOne) || 0) * 82350;
+    const price2 = (parseInt(data.fieldTwo) || 0) * 82350;
+    const price3 = (parseInt(data.fieldThree) || 0) * 95000;
+    const price4 = (parseInt(data.fieldFour) || 0) * 118450;
     setPrice(price1 + price2 + price3 + price4);
   };
 
@@ -37,7 +35,11 @@ const Home = () => {
   return (
     <DefaultLayout>
       <div>
-        <img src="/images/logo.jfif" alt="logo" className="w-auto h-14 mx-auto" />
+        <img
+          src="/images/logo.jfif"
+          alt="logo"
+          className="w-auto h-14 mx-auto"
+        />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1 className="text-center py-4 text-2xl">CAN_IMM Price calculator</h1>
@@ -108,7 +110,7 @@ const Home = () => {
             <button
               className="bg-gray-500 mt-4 w-full h-8 p-1 text-sm rounded-md"
               type="button"
-              onClick={() => toClear()}
+              onClick={toClear}
             >
               Clear
             </button>
