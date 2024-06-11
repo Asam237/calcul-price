@@ -54,16 +54,22 @@ const Home = () => {
           onClick={() => setSel(0)}
           className={`${
             sel === 0 ? "bg-blue-50 text-black" : "text-blue-50"
-          } px-4 py-2 rounded-md text-xs hover:animate-pulse`}
+          } px-4 py-2 rounded-md text-xs flex`}
         >
+          <span>
+            <img src="/images/can.png" className="w-4 h-4 mr-2" />
+          </span>
           CAN_IMM Price
         </button>
         <button
           onClick={() => setSel(1)}
           className={`${
             sel === 1 ? "bg-blue-50 text-black" : "text-blue-50"
-          } px-4 py-2 rounded-md text-xs hover:animate-pulse`}
+          } px-4 py-2 rounded-md text-xs flex`}
         >
+          <span>
+            <img src="/images/uk.png" className="w-4 h-4 mr-2" />
+          </span>
           UK_TB Price
         </button>
       </div>
