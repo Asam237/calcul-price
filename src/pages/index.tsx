@@ -28,8 +28,8 @@ const Home = () => {
     const price2 = (parseInt(data.fieldTwo) || 0) * 82350;
     const price3 = (parseInt(data.fieldThree) || 0) * 95000;
     const price4 = (parseInt(data.fieldFour) || 0) * 118450;
-    const price5 = (parseInt(data.fieldFive) || 0) * 118450;
-    const price6 = (parseInt(data.fieldSix) || 0) * 118450;
+    const price5 = (parseInt(data.fieldFive) || 0) * 31650;
+    const price6 = (parseInt(data.fieldSix) || 0) * 44350;
     setPriceCANIMM(price1 + price2 + price3 + price4);
     setPriceUKTB(price5 + price6);
   };
@@ -163,13 +163,28 @@ const Home = () => {
           <div className="flex flex-col justify-center items-center">
             <div className="flex flex-col mt-4">
               <span className="text-xs">
-                15 years and above
+                Less than 11 years
                 <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                  118 450 FCFA
+                  31 650 FCFA
                 </span>
               </span>
               <input
                 {...register("fieldFive")}
+                className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
+                type="number"
+                defaultValue={defaultValue}
+                min={0}
+              />
+            </div>
+            <div className="flex flex-col mt-4">
+              <span className="text-xs">
+                11 years and above
+                <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                  44 350 FCFA
+                </span>
+              </span>
+              <input
+                {...register("fieldSix")}
                 className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
                 type="number"
                 defaultValue={defaultValue}
