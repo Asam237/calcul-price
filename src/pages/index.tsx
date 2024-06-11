@@ -88,6 +88,7 @@ const Home = () => {
                 {...register("fieldOne")}
                 className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
                 type="number"
+                min={0}
                 defaultValue={defaultValue}
               />
             </div>
@@ -102,6 +103,7 @@ const Home = () => {
                 {...register("fieldTwo")}
                 className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
                 type="number"
+                min={0}
                 defaultValue={defaultValue}
               />
             </div>
@@ -116,6 +118,7 @@ const Home = () => {
                 {...register("fieldThree")}
                 className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
                 type="number"
+                min={0}
                 defaultValue={defaultValue}
               />
             </div>
@@ -130,6 +133,7 @@ const Home = () => {
                 {...register("fieldFour")}
                 className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
                 type="number"
+                min={0}
                 defaultValue={defaultValue}
               />
             </div>
@@ -169,6 +173,7 @@ const Home = () => {
                 className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
                 type="number"
                 defaultValue={defaultValue}
+                min={0}
               />
             </div>
             <div className="flex gap-x-2 flex-row w-1/2">
