@@ -207,7 +207,7 @@ const Home = () => {
                   Check
                 </button>
               </div>
-              {parseInt(String(restOne)) < 0 ? (
+              {priceCANIMM && parseInt(String(restOne)) < 0 ? (
                 <p className="bg-green-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
                   It is in good sale.
                 </p>
