@@ -10,6 +10,7 @@ type InputsCANIMM = {
   fieldFour: string;
   fieldFive: string;
   fieldSix: string;
+  fieldDiffOne: string;
 };
 
 const Home = () => {
@@ -19,6 +20,10 @@ const Home = () => {
   const [sel, setSel] = useState(0);
   const [familySize1, setFamilySize1] = useState(0);
   const [familySize2, setFamilySize2] = useState(0);
+  const [textToShow, setTextToShow] = useState("");
+  const [pp, setPp] = useState(0);
+
+  const [restOne, setRestOne] = useState(0);
 
   const {
     register,
@@ -32,6 +37,8 @@ const Home = () => {
     const price4 = (parseInt(data.fieldFour) || 0) * 118450;
     const price5 = (parseInt(data.fieldFive) || 0) * 31650;
     const price6 = (parseInt(data.fieldSix) || 0) * 44350;
+    const priceDiff1 = parseInt(data.fieldDiffOne) || 0;
+
     setPriceCANIMM(price1 + price2 + price3 + price4);
     setPriceUKTB(price5 + price6);
     const sizes1 =
@@ -42,6 +49,8 @@ const Home = () => {
     const sizes2 = parseInt(data.fieldFive) + parseInt(data.fieldSix);
     setFamilySize1(sizes1);
     setFamilySize2(sizes2);
+    setPp(priceDiff1);
+    setRestOne(priceCANIMM - priceDiff1);
   };
 
   const toClear = () => {
@@ -50,6 +59,11 @@ const Home = () => {
     setPriceUKTB(0);
     setFamilySize1(0);
     setFamilySize2(0);
+  };
+
+  const toCheck = () => {
+    setRestOne(parseInt(String(priceCANIMM)) - parseInt(String(pp)));
+    console.log(restOne);
   };
 
   return (
@@ -172,6 +186,40 @@ const Home = () => {
             <h1 className="text-center my-4 bg-white text-blue-700 p-2 rounded-md">
               {new Intl.NumberFormat("en-US").format(priceCANIMM)} FCFA
             </h1>
+          </div>
+          <div className="bg-blue-950 rounded-md px-6 py-4">
+            <div className="flex justify-center items-center flex-col">
+              <p className="text-xs text-gray-300 text-center">
+                Receipt amount
+              </p>
+              <div className="flex flex-row justify-center items-center space-x-2 mt-4">
+                <input
+                  {...register("fieldDiffOne")}
+                  className="w-2/3 h-8 py-1 px-3 text-sm text-black rounded-md"
+                  type="number"
+                  defaultValue={defaultValue}
+                  min={0}
+                />
+                <button
+                  className="bg-green-500 w-[80px] h-8 p-1 text-sm rounded-md text-white"
+                  onClick={toCheck}
+                >
+                  Check
+                </button>
+              </div>
+              {parseInt(String(restOne)) < 0 ? (
+                <p className="bg-green-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
+                  It is in good sale.
+                </p>
+              ) : parseInt(String(restOne)) == 0 ? (
+                <p className="hidden"></p>
+              ) : (
+                <p className="bg-red-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
+                  {new Intl.NumberFormat("en-US").format(restOne)} FCFA left to
+                  complete the invoice
+                </p>
+              )}
+            </div>
           </div>
         </form>
       )}
