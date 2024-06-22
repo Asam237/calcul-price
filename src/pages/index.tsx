@@ -22,14 +22,13 @@ const Home = () => {
   const [familySize2, setFamilySize2] = useState(0);
   const [textToShow, setTextToShow] = useState("");
   const [pp, setPp] = useState(0);
-  
-
   const [restOne, setRestOne] = useState(0);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<InputsCANIMM>();
   const onSubmit: SubmitHandler<InputsCANIMM> = (data) => {
     const price1 = (parseInt(data.fieldOne) || 0) * 82350;
@@ -54,12 +53,30 @@ const Home = () => {
     setRestOne(priceCANIMM - priceDiff1);
   };
 
+  // const toClear = () => {
+  //   setDefaultValue(0);
+  //   setPriceCANIMM(0);
+  //   setPriceUKTB(0);
+  //   setFamilySize1(0);
+  //   setFamilySize2(0);
+  // };
+
   const toClear = () => {
-    setDefaultValue(0);
+    reset({
+      fieldOne: "0",
+      fieldTwo: "0",
+      fieldThree: "0",
+      fieldFour: "0",
+      fieldFive: "0",
+      fieldSix: "0",
+      fieldDiffOne: "0",
+    });
     setPriceCANIMM(0);
     setPriceUKTB(0);
     setFamilySize1(0);
     setFamilySize2(0);
+    setPp(0);
+    setRestOne(0);
   };
 
   const toCheck = () => {
