@@ -22,6 +22,7 @@ const Home = () => {
   const [familySize2, setFamilySize2] = useState(0);
   const [textToShow, setTextToShow] = useState("");
   const [pp, setPp] = useState(0);
+  
 
   const [restOne, setRestOne] = useState(0);
 
@@ -62,8 +63,9 @@ const Home = () => {
   };
 
   const toCheck = () => {
-    setRestOne(parseInt(String(priceCANIMM)) - parseInt(String(pp)));
-    console.log(restOne);
+    parseInt(String(pp)) === 0
+      ? setRestOne(0)
+      : setRestOne(parseInt(String(priceCANIMM)) - parseInt(String(pp)));
   };
 
   return (
@@ -103,89 +105,91 @@ const Home = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* <h1 className="text-center py-4 text-2xl">CAN_IMM Price calculator</h1> */}
           <div className="flex flex-col justify-center items-center">
-            <div className="flex flex-col">
-              <span className="text-xs">
-                Less than 5 years
-                <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                  82 350 FCFA
+            <div>
+              <div className="flex flex-col">
+                <span className="text-xs">
+                  Less than 5 years
+                  <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                    82 350 FCFA
+                  </span>
                 </span>
-              </span>
-              <input
-                {...register("fieldOne")}
-                className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
-                type="number"
-                min={0}
-                defaultValue={defaultValue}
-              />
-            </div>
-            <div className="flex flex-col mt-4">
-              <span className="text-xs">
-                5 to 10 years
-                <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                  82 350 FCFA
+                <input
+                  {...register("fieldOne")}
+                  className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
+                  type="number"
+                  min={0}
+                  defaultValue={defaultValue}
+                />
+              </div>
+              <div className="flex flex-col mt-4">
+                <span className="text-xs">
+                  5 to 10 years
+                  <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                    82 350 FCFA
+                  </span>
                 </span>
-              </span>
-              <input
-                {...register("fieldTwo")}
-                className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
-                type="number"
-                min={0}
-                defaultValue={defaultValue}
-              />
-            </div>
-            <div className="flex flex-col mt-4">
-              <span className="text-xs">
-                11 to 14 years
-                <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                  95 000 FCFA
+                <input
+                  {...register("fieldTwo")}
+                  className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
+                  type="number"
+                  min={0}
+                  defaultValue={defaultValue}
+                />
+              </div>
+              <div className="flex flex-col mt-4">
+                <span className="text-xs">
+                  11 to 14 years
+                  <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                    95 000 FCFA
+                  </span>
                 </span>
-              </span>
-              <input
-                {...register("fieldThree")}
-                className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
-                type="number"
-                min={0}
-                defaultValue={defaultValue}
-              />
-            </div>
-            <div className="flex flex-col mt-4">
-              <span className="text-xs">
-                15 years and above
-                <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                  118 450 FCFA
+                <input
+                  {...register("fieldThree")}
+                  className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
+                  type="number"
+                  min={0}
+                  defaultValue={defaultValue}
+                />
+              </div>
+              <div className="flex flex-col mt-4">
+                <span className="text-xs">
+                  15 years and above
+                  <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                    118 450 FCFA
+                  </span>
                 </span>
-              </span>
-              <input
-                {...register("fieldFour")}
-                className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
-                type="number"
-                min={0}
-                defaultValue={defaultValue}
-              />
+                <input
+                  {...register("fieldFour")}
+                  className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
+                  type="number"
+                  min={0}
+                  defaultValue={defaultValue}
+                />
+              </div>
+              {familySize1 !== 0 && (
+                <p className="bg-gray-300 text-gray-900 px-2 py-2 mt-4 rounded-md text-xs font-bold text-center">
+                  Family size: {familySize1}
+                </p>
+              )}
+              <div className="flex gap-x-2 flex-row justify-center items-center w-full">
+                <button
+                  className="bg-blue-600 mt-4 w-full h-8 p-1 rounded-md text-sm"
+                  type="submit"
+                >
+                  Calculate
+                </button>
+                <button
+                  className="bg-gray-500 mt-4 w-full h-8 p-1 text-sm rounded-md"
+                  type="button"
+                  onClick={toClear}
+                >
+                  Clear
+                </button>
+              </div>
+              <h1 className="text-center my-4 bg-white text-blue-700 p-2 rounded-md">
+                {new Intl.NumberFormat("en-US").format(priceCANIMM)} FCFA
+              </h1>
             </div>
-            {familySize1 !== 0 && (
-              <p className="bg-gray-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs animate-pulse">
-                Family size: {familySize1}
-              </p>
-            )}
-            <div className="flex gap-x-2 flex-row w-1/2">
-              <button
-                className="bg-blue-600 mt-4 w-full h-8 p-1 rounded-md text-sm"
-                type="submit"
-              >
-                Calculate
-              </button>
-              <button
-                className="bg-gray-500 mt-4 w-full h-8 p-1 text-sm rounded-md"
-                type="button"
-                onClick={toClear}
-              >
-                Clear
-              </button>
-            </div>
-            <h1 className="text-center my-4 bg-white text-blue-700 p-2 rounded-md">
-              {new Intl.NumberFormat("en-US").format(priceCANIMM)} FCFA
-            </h1>
           </div>
           <div className="bg-blue-950 rounded-md px-6 py-4">
             <div className="flex justify-center items-center flex-col">
@@ -211,7 +215,7 @@ const Home = () => {
                 <p className="bg-green-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
                   It is in good sale.
                 </p>
-              ) : parseInt(String(restOne)) == 0 ? (
+              ) : parseInt(String(pp)) === 0 ? (
                 <p className="hidden"></p>
               ) : (
                 <p className="bg-red-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
@@ -257,7 +261,7 @@ const Home = () => {
               />
             </div>
             {familySize2 !== 0 && (
-              <p className="bg-gray-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs animate-pulse">
+              <p className="bg-gray-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs font-bold">
                 Family size: {familySize2}
               </p>
             )}
