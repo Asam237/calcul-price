@@ -19,6 +19,9 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
           <main>{children}</main>
         </div>
       </div>
+      <footer className="flex justify-center items-center pt-4 pb-6">
+        <p className="text-[14px] text-gray-300">Copyright © {new Date().getFullYear()} International Organization for Migration</p>
+      </footer>
     </>
   );
 };
