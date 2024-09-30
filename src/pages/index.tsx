@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 type InputsCANIMM = {
   fieldOne: string;
-  fieldTwo: string;
+  // fieldTwo: string;
   fieldThree: string;
   fieldFour: string;
   fieldFive: string;
@@ -32,18 +32,19 @@ const Home = () => {
   } = useForm<InputsCANIMM>();
   const onSubmit: SubmitHandler<InputsCANIMM> = (data) => {
     const price1 = (parseInt(data.fieldOne) || 0) * 82350;
-    const price2 = (parseInt(data.fieldTwo) || 0) * 82350;
+    // const price2 = (parseInt(data.fieldTwo) || 0) * 82350;
     const price3 = (parseInt(data.fieldThree) || 0) * 95000;
     const price4 = (parseInt(data.fieldFour) || 0) * 118450;
     const price5 = (parseInt(data.fieldFive) || 0) * 31650;
     const price6 = (parseInt(data.fieldSix) || 0) * 44350;
     const priceDiff1 = parseInt(data.fieldDiffOne) || 0;
 
-    setPriceCANIMM(price1 + price2 + price3 + price4);
+    setPriceCANIMM(price1 + price3 + price4);
+    // setPriceCANIMM(price1 + price2 + price3 + price4);
     setPriceUKTB(price5 + price6);
     const sizes1 =
       parseInt(data.fieldOne) +
-      parseInt(data.fieldTwo) +
+      // parseInt(data.fieldTwo) +
       parseInt(data.fieldThree) +
       parseInt(data.fieldFour);
     const sizes2 = parseInt(data.fieldFive) + parseInt(data.fieldSix);
@@ -64,7 +65,7 @@ const Home = () => {
   const toClear = () => {
     reset({
       fieldOne: "0",
-      fieldTwo: "0",
+      // fieldTwo: "0",
       fieldThree: "0",
       fieldFour: "0",
       fieldFive: "0",
