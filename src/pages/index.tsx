@@ -125,7 +125,7 @@ const Home = () => {
             <div>
               <div className="flex flex-col">
                 <span className="text-xs">
-                  Less than 5 years
+                  Less than 10 years
                   <span className="bg-gray-300 text-gray-900 px-1 ml-1">
                     82 350 FCFA
                   </span>
@@ -138,7 +138,7 @@ const Home = () => {
                   defaultValue={defaultValue}
                 />
               </div>
-              <div className="flex flex-col mt-4">
+              {/* <div className="flex flex-col mt-4">
                 <span className="text-xs">
                   5 to 10 years
                   <span className="bg-gray-300 text-gray-900 px-1 ml-1">
@@ -152,7 +152,7 @@ const Home = () => {
                   min={0}
                   defaultValue={defaultValue}
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col mt-4">
                 <span className="text-xs">
                   11 to 14 years
