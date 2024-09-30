@@ -23,6 +23,7 @@ const Home = () => {
   const [textToShow, setTextToShow] = useState("");
   const [pp, setPp] = useState(0);
   const [restOne, setRestOne] = useState(0);
+  const [open0, setOpen0] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
@@ -79,6 +80,7 @@ const Home = () => {
     setPriceUKTB(0);
     setFamilySize1(0);
     setFamilySize2(0);
+    setOpen0(false);
     setOpen1(false);
     setOpen2(false);
     setOpen3(false);
@@ -95,13 +97,39 @@ const Home = () => {
   return (
     <>
       <DefaultLayout>
-        <div>
+        <div className="flex space-x-2 justify-center items-center w-32 mx-auto">
           <img
             src="/images/logo-02.png"
             alt="logo"
             className="w-auto h-14 mx-auto"
           />
+          <span
+            onClick={() => setOpen0(!open0)}
+            className="border rounded-full p-1 cursor-pointer border-gray-400"
+          >
+            <FaExclamation
+              size={10}
+              className="flex justify-center items-center text-gray-400"
+            />
+          </span>
         </div>
+        {open0 && (
+          <div>
+            <p className="text-sm">
+              <b>...But here is what you need to know:</b>
+            </p>
+            <ul className="text-xs flex flex-col space-y-3 mt-1">
+              <li>
+                &#9679; The bank:
+                <span className="bg-gray-300 text-gray-900 ml-1 px-1">ECOBANK</span>
+              </li>
+              <li>
+                &#9679; IOM account number:
+                <span className="bg-gray-300 text-gray-900 ml-1 px-1">xxx xxxx xxx</span>
+              </li>
+            </ul>
+          </div>
+        )}
         <div className="py-4 flex space-x-4">
           <button
             onClick={() => setSel(0)}
@@ -141,11 +169,11 @@ const Home = () => {
                     </span>
                     <span
                       onClick={() => setOpen1(!open1)}
-                      className="border rounded-full p-1 cursor-pointer"
+                      className="border rounded-full p-1 cursor-pointer border-gray-400"
                     >
                       <FaExclamation
-                        size={14}
-                        className="flex justify-center items-center"
+                        size={10}
+                        className="flex justify-center items-center text-gray-400"
                       />
                     </span>
                   </div>
@@ -212,11 +240,11 @@ const Home = () => {
 
                     <span
                       onClick={() => setOpen2(!open2)}
-                      className="border rounded-full p-1 cursor-pointer"
+                      className="border rounded-full p-1 cursor-pointer border-gray-400"
                     >
                       <FaExclamation
-                        size={14}
-                        className="flex justify-center items-center"
+                        size={10}
+                        className="flex justify-center items-center text-gray-400"
                       />
                     </span>
                   </div>
@@ -240,7 +268,7 @@ const Home = () => {
                   />
                 </div>
                 <div className="flex flex-col mt-4">
-                  <div className="flex space-x-2 justify-center items-center">
+                  <div className="flex space-x-2 items-center">
                     <span className="text-xs">
                       15 years and above
                       <span className="bg-gray-300 text-gray-900 px-1 ml-1">
@@ -249,9 +277,12 @@ const Home = () => {
                     </span>
                     <span
                       onClick={() => setOpen3(!open3)}
-                      className="border rounded-full p-1 cursor-pointer"
+                      className="border rounded-full p-1 cursor-pointer border-gray-400"
                     >
-                      <FaExclamation size={14} className="flex items-center" />
+                      <FaExclamation
+                        size={10}
+                        className="flex items-center text-gray-400"
+                      />
                     </span>
                   </div>
                   {open3 && (
