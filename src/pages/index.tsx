@@ -89,7 +89,7 @@ const Home = () => {
     <DefaultLayout>
       <div>
         <img
-          src="/images/logo.jfif"
+          src="/images/logo-02.png"
           alt="logo"
           className="w-auto h-14 mx-auto"
         />
