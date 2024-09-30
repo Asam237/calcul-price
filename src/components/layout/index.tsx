@@ -12,7 +12,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       <Head>
-        <title>CAN_IMM - UK, Price Calculator</title>
+        <title>CAN_IMM - UK  |  Price Calculator</title>
       </Head>
       <div className={cn(EuclidUiDisplay.variable)}>
         <div className="flex justify-center items-center mt-10">
