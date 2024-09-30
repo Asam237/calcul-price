@@ -159,8 +159,8 @@ const Home = () => {
                         </p>
                         <ul className="text-[14px] leading-5 text-gray-300">
                           <li>&#8594; Registration</li>
-                          <li>&#8594; Nurses'Unit</li>
-                          <li>&#8594; Doctors'Unit</li>
+                          <li>&#8594; Nurses&apos;Unit</li>
+                          <li>&#8594; Doctors&apos;Unit</li>
                         </ul>
                       </div>
                       <div>
@@ -171,8 +171,8 @@ const Home = () => {
                           <ul className="text-[14px] leading-5 text-gray-300">
                             <li>&#8594; Registration</li>
                             <li>&#8594; Laboratory</li>
-                            <li>&#8594; Nurses'Unit</li>
-                            <li>&#8594; Doctors'Unit</li>
+                            <li>&#8594; Nurses&apos;Unit</li>
+                            <li>&#8594; Doctors&apos;Unit</li>
                           </ul>
                         </p>
                       </div>
@@ -226,8 +226,8 @@ const Home = () => {
                         <li>&#8594; Registration</li>
                         <li>&#8594; Laboratory</li>
                         <li>&#8594; X-Ray Chest</li>
-                        <li>&#8594; Nurses'Unit</li>
-                        <li>&#8594; Doctors'Unit</li>
+                        <li>&#8594; Nurses&apos;Unit</li>
+                        <li>&#8594; Doctors&apos;Unit</li>
                       </ul>
                     </div>
                   )}
@@ -260,8 +260,8 @@ const Home = () => {
                         <li>&#8594; Registration</li>
                         <li>&#8594; Laboratory</li>
                         <li>&#8594; X-Ray Chest</li>
-                        <li>&#8594; Nurses'Unit</li>
-                        <li>&#8594; Doctors'Unit</li>
+                        <li>&#8594; Nurses&apos;Unit</li>
+                        <li>&#8594; Doctors&apos;Unit</li>
                       </ul>
                     </div>
                   )}
