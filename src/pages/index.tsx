@@ -159,7 +159,7 @@ const Home = () => {
                 <div className="flex flex-col">
                   <div className="flex space-x-2">
                     <span className="text-xs">Less than 10 years</span>
-                    <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                    <span className="bg-gray-300 text-gray-900 px-1 ml-1 text-xs">
                       82 350 FCFA
                     </span>
                   </div>
