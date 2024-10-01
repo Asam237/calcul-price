@@ -121,7 +121,7 @@ const Home = () => {
               <li>
                 &#9679; IOM account number:
                 <span className="bg-gray-300 text-gray-900 ml-1 px-1">
-                  xxx xxxx xxx
+                  30830023091
                 </span>
               </li>
             </ul>
@@ -159,6 +159,9 @@ const Home = () => {
                 <div className="flex flex-col">
                   <div className="flex space-x-2">
                     <span className="text-xs">Less than 10 years</span>
+                    <span className="bg-gray-300 text-gray-900 px-1 ml-1">
+                      82 350 FCFA
+                    </span>
                   </div>
                   <input
                     {...register("fieldOne")}
@@ -205,9 +208,9 @@ const Home = () => {
                 {familySize1 !== 0 && (
                   <div className="bg-gray-300 text-gray-900 px-2 py-2 mt-4 rounded-md text-xs font-bold text-center flex justify-center space-x-1">
                     {familySize1 == 1 ? (
-                      <img src="/images/man.png" className="w-4 h-4"/>
+                      <img src="/images/man.png" className="w-4 h-4" />
                     ) : (
-                      <img src="/images/families.png" className="w-4 h-4"/>
+                      <img src="/images/families.png" className="w-4 h-4" />
                     )}
                     <span>Family size: {familySize1}</span>
                   </div>
