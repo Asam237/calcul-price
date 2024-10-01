@@ -20,7 +20,6 @@ const Home = () => {
   const [sel, setSel] = useState(0);
   const [familySize1, setFamilySize1] = useState(0);
   const [familySize2, setFamilySize2] = useState(0);
-  const [textToShow, setTextToShow] = useState("");
   const [pp, setPp] = useState(0);
   const [restOne, setRestOne] = useState(0);
   const [open0, setOpen0] = useState(false);
@@ -121,11 +120,15 @@ const Home = () => {
             <ul className="text-xs flex flex-col space-y-3 mt-1">
               <li>
                 &#9679; The bank:
-                <span className="bg-gray-300 text-gray-900 ml-1 px-1">ECOBANK</span>
+                <span className="bg-gray-300 text-gray-900 ml-1 px-1">
+                  ECOBANK
+                </span>
               </li>
               <li>
                 &#9679; IOM account number:
-                <span className="bg-gray-300 text-gray-900 ml-1 px-1">xxx xxxx xxx</span>
+                <span className="bg-gray-300 text-gray-900 ml-1 px-1">
+                  xxx xxxx xxx
+                </span>
               </li>
             </ul>
           </div>
@@ -181,26 +184,26 @@ const Home = () => {
                     <div className="text-white p-4 flex space-x-10">
                       <div>
                         <p>
-                          <span className="text-sm">
+                          <span className="text-xs">
                             <strong>Less than 5 years</strong>
                           </span>
                         </p>
-                        <ul className="text-[14px] leading-5 text-gray-300">
-                          <li>&#8594; Registration</li>
-                          <li>&#8594; Nurses&apos;Unit</li>
-                          <li>&#8594; Doctors&apos;Unit</li>
+                        <ul className="text-[13px] leading-5 text-gray-300">
+                          <li>&#9679; Registration</li>
+                          <li>&#9679; Nurses&apos;Unit</li>
+                          <li>&#9679; Doctors&apos;Unit</li>
                         </ul>
                       </div>
                       <div>
                         <p>
-                          <span className="text-sm">
+                          <span className="text-xs">
                             <strong>5 to 10 years</strong>
                           </span>
-                          <ul className="text-[14px] leading-5 text-gray-300">
-                            <li>&#8594; Registration</li>
-                            <li>&#8594; Laboratory</li>
-                            <li>&#8594; Nurses&apos;Unit</li>
-                            <li>&#8594; Doctors&apos;Unit</li>
+                          <ul className="text-[13px] leading-5 text-gray-300">
+                            <li>&#9679; Registration</li>
+                            <li>&#9679; Laboratory</li>
+                            <li>&#9679; Nurses&apos;Unit</li>
+                            <li>&#9679; Doctors&apos;Unit</li>
                           </ul>
                         </p>
                       </div>
@@ -250,12 +253,12 @@ const Home = () => {
                   </div>
                   {open2 && (
                     <div className="text-white flex flex-col space-y-4 mt-2 mb-4">
-                      <ul className="text-[14px] leading-5 text-gray-300">
-                        <li>&#8594; Registration</li>
-                        <li>&#8594; Laboratory</li>
-                        <li>&#8594; X-Ray Chest</li>
-                        <li>&#8594; Nurses&apos;Unit</li>
-                        <li>&#8594; Doctors&apos;Unit</li>
+                      <ul className="text-[13px] leading-5 text-gray-300">
+                        <li>&#9679; Registration</li>
+                        <li>&#9679; Laboratory</li>
+                        <li>&#9679; X-Ray Chest</li>
+                        <li>&#9679; Nurses&apos;Unit</li>
+                        <li>&#9679; Doctors&apos;Unit</li>
                       </ul>
                     </div>
                   )}
@@ -287,12 +290,12 @@ const Home = () => {
                   </div>
                   {open3 && (
                     <div className="text-white flex flex-col space-y-4 mt-2 mb-4">
-                      <ul className="text-[14px] leading-5 text-gray-300">
-                        <li>&#8594; Registration</li>
-                        <li>&#8594; Laboratory</li>
-                        <li>&#8594; X-Ray Chest</li>
-                        <li>&#8594; Nurses&apos;Unit</li>
-                        <li>&#8594; Doctors&apos;Unit</li>
+                      <ul className="text-[13px] leading-5 text-gray-300">
+                        <li>&#9679; Registration</li>
+                        <li>&#9679; Laboratory</li>
+                        <li>&#9679; X-Ray Chest</li>
+                        <li>&#9679; Nurses&apos;Unit</li>
+                        <li>&#9679; Doctors&apos;Unit</li>
                       </ul>
                     </div>
                   )}
