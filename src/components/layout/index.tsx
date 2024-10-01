@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Footer } from "../Footer";
 import cn from "clsx";
 import { EuclidUiDisplay } from "@/lib/fonts";
 import Head from "next/head";

@@ -22,10 +22,7 @@ const Home = () => {
   const [familySize2, setFamilySize2] = useState(0);
   const [pp, setPp] = useState(0);
   const [restOne, setRestOne] = useState(0);
-  const [open0, setOpen0] = useState(false);
-  const [open1, setOpen1] = useState(false);
-  const [open2, setOpen2] = useState(false);
-  const [open3, setOpen3] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const {
     register,
@@ -79,10 +76,7 @@ const Home = () => {
     setPriceUKTB(0);
     setFamilySize1(0);
     setFamilySize2(0);
-    setOpen0(false);
-    setOpen1(false);
-    setOpen2(false);
-    setOpen3(false);
+    setOpen(false);
     setPp(0);
     setRestOne(0);
   };
@@ -103,7 +97,7 @@ const Home = () => {
             className="w-auto h-14 mx-auto"
           />
           <span
-            onClick={() => setOpen0(!open0)}
+            onClick={() => setOpen(!open)}
             className="border rounded-full p-1 cursor-pointer border-gray-400"
           >
             <FaExclamation
@@ -112,7 +106,7 @@ const Home = () => {
             />
           </span>
         </div>
-        {open0 && (
+        {open && (
           <div>
             <p className="text-sm">
               <b>...But here is what you need to know:</b>
@@ -163,52 +157,9 @@ const Home = () => {
             <div className="flex flex-col justify-center items-center">
               <div>
                 <div className="flex flex-col">
-                  <div className="flex space-x-2 justify-center items-center">
-                    <span className="text-xs">
-                      Less than 10 years
-                      <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                        82 350 FCFA
-                      </span>
-                    </span>
-                    <span
-                      onClick={() => setOpen1(!open1)}
-                      className="border rounded-full p-1 cursor-pointer border-gray-400"
-                    >
-                      <FaExclamation
-                        size={10}
-                        className="flex justify-center items-center text-gray-400"
-                      />
-                    </span>
+                  <div className="flex space-x-2">
+                    <span className="text-xs">Less than 10 years</span>
                   </div>
-                  {open1 && (
-                    <div className="text-white p-4 flex space-x-10">
-                      <div>
-                        <p>
-                          <span className="text-xs">
-                            <strong>Less than 5 years</strong>
-                          </span>
-                        </p>
-                        <ul className="text-[13px] leading-5 text-gray-300">
-                          <li>&#9679; Registration</li>
-                          <li>&#9679; Nurses&apos;Unit</li>
-                          <li>&#9679; Doctors&apos;Unit</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <p>
-                          <span className="text-xs">
-                            <strong>5 to 10 years</strong>
-                          </span>
-                          <ul className="text-[13px] leading-5 text-gray-300">
-                            <li>&#9679; Registration</li>
-                            <li>&#9679; Laboratory</li>
-                            <li>&#9679; Nurses&apos;Unit</li>
-                            <li>&#9679; Doctors&apos;Unit</li>
-                          </ul>
-                        </p>
-                      </div>
-                    </div>
-                  )}
                   <input
                     {...register("fieldOne")}
                     className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
@@ -217,51 +168,15 @@ const Home = () => {
                     defaultValue={defaultValue}
                   />
                 </div>
-                {/* <div className="flex flex-col mt-4">
-                <span className="text-xs">
-                  5 to 10 years
-                  <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                    82 350 FCFA
-                  </span>
-                </span>
-                <input
-                  {...register("fieldTwo")}
-                  className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
-                  type="number"
-                  min={0}
-                  defaultValue={defaultValue}
-                />
-              </div> */}
                 <div className="flex flex-col mt-4">
-                  <div className="flex space-x-2 items-center">
+                  <div className="flex space-x-2">
                     <span className="text-xs">
                       11 to 14 years
                       <span className="bg-gray-300 text-gray-900 px-1 ml-1">
                         95 000 FCFA
                       </span>
                     </span>
-
-                    <span
-                      onClick={() => setOpen2(!open2)}
-                      className="border rounded-full p-1 cursor-pointer border-gray-400"
-                    >
-                      <FaExclamation
-                        size={10}
-                        className="flex justify-center items-center text-gray-400"
-                      />
-                    </span>
                   </div>
-                  {open2 && (
-                    <div className="text-white flex flex-col space-y-4 mt-2 mb-4">
-                      <ul className="text-[13px] leading-5 text-gray-300">
-                        <li>&#9679; Registration</li>
-                        <li>&#9679; Laboratory</li>
-                        <li>&#9679; X-Ray Chest</li>
-                        <li>&#9679; Nurses&apos;Unit</li>
-                        <li>&#9679; Doctors&apos;Unit</li>
-                      </ul>
-                    </div>
-                  )}
                   <input
                     {...register("fieldThree")}
                     className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
@@ -278,27 +193,7 @@ const Home = () => {
                         118 450 FCFA
                       </span>
                     </span>
-                    <span
-                      onClick={() => setOpen3(!open3)}
-                      className="border rounded-full p-1 cursor-pointer border-gray-400"
-                    >
-                      <FaExclamation
-                        size={10}
-                        className="flex items-center text-gray-400"
-                      />
-                    </span>
                   </div>
-                  {open3 && (
-                    <div className="text-white flex flex-col space-y-4 mt-2 mb-4">
-                      <ul className="text-[13px] leading-5 text-gray-300">
-                        <li>&#9679; Registration</li>
-                        <li>&#9679; Laboratory</li>
-                        <li>&#9679; X-Ray Chest</li>
-                        <li>&#9679; Nurses&apos;Unit</li>
-                        <li>&#9679; Doctors&apos;Unit</li>
-                      </ul>
-                    </div>
-                  )}
                   <input
                     {...register("fieldFour")}
                     className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
@@ -308,9 +203,14 @@ const Home = () => {
                   />
                 </div>
                 {familySize1 !== 0 && (
-                  <p className="bg-gray-300 text-gray-900 px-2 py-2 mt-4 rounded-md text-xs font-bold text-center">
-                    Family size: {familySize1}
-                  </p>
+                  <div className="bg-gray-300 text-gray-900 px-2 py-2 mt-4 rounded-md text-xs font-bold text-center flex justify-center space-x-1">
+                    {familySize1 == 1 ? (
+                      <img src="/images/man.png" className="w-4 h-4"/>
+                    ) : (
+                      <img src="/images/families.png" className="w-4 h-4"/>
+                    )}
+                    <span>Family size: {familySize1}</span>
+                  </div>
                 )}
                 <div className="flex gap-x-2 flex-row justify-center items-center w-full">
                   <button
