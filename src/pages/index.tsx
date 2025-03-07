@@ -5,7 +5,7 @@ import { FaExclamation } from "react-icons/fa";
 
 type InputsCANIMM = {
   fieldOne: string;
-  // fieldTwo: string;
+  fieldTwo: string;
   fieldThree: string;
   fieldFour: string;
   fieldFive: string;
@@ -31,20 +31,20 @@ const Home = () => {
     reset,
   } = useForm<InputsCANIMM>();
   const onSubmit: SubmitHandler<InputsCANIMM> = (data) => {
-    const price1 = (parseInt(data.fieldOne) || 0) * 82350;
-    // const price2 = (parseInt(data.fieldTwo) || 0) * 82350;
-    const price3 = (parseInt(data.fieldThree) || 0) * 95000;
-    const price4 = (parseInt(data.fieldFour) || 0) * 118450;
+    const price1 = (parseInt(data.fieldOne) || 0) * 81821;
+    const price2 = (parseInt(data.fieldTwo) || 0) * 84968;
+    const price3 = (parseInt(data.fieldThree) || 0) * 97556;
+    const price4 = (parseInt(data.fieldFour) || 0) * 120844;
     const price5 = (parseInt(data.fieldFive) || 0) * 31650;
     const price6 = (parseInt(data.fieldSix) || 0) * 44350;
     const priceDiff1 = parseInt(data.fieldDiffOne) || 0;
 
-    setPriceCANIMM(price1 + price3 + price4);
-    // setPriceCANIMM(price1 + price2 + price3 + price4);
+    // setPriceCANIMM(price1 + price3 + price4);
+    setPriceCANIMM(price1 + price2 + price3 + price4);
     setPriceUKTB(price5 + price6);
     const sizes1 =
       parseInt(data.fieldOne) +
-      // parseInt(data.fieldTwo) +
+      parseInt(data.fieldTwo) +
       parseInt(data.fieldThree) +
       parseInt(data.fieldFour);
     const sizes2 = parseInt(data.fieldFive) + parseInt(data.fieldSix);
@@ -158,9 +158,9 @@ const Home = () => {
               <div>
                 <div className="flex flex-col">
                   <div className="flex space-x-2">
-                    <span className="text-xs">Less than 11 years</span>
+                    <span className="text-xs">Less than 6 years</span>
                     <span className="bg-gray-300 text-gray-900 px-1 ml-1 text-xs">
-                      82 350 FCFA
+                      81 821 FCFA
                     </span>
                   </div>
                   <input
@@ -173,10 +173,25 @@ const Home = () => {
                 </div>
                 <div className="flex flex-col mt-4">
                   <div className="flex space-x-2">
+                    <span className="text-xs">6 to 10 years</span>
+                    <span className="bg-gray-300 text-gray-900 px-1 ml-1 text-xs">
+                      84 968 FCFA
+                    </span>
+                  </div>
+                  <input
+                    {...register("fieldTwo")}
+                    className="mt-2 w-full h-8 py-1 px-3 text-sm text-black rounded-md"
+                    type="number"
+                    min={0}
+                    defaultValue={defaultValue}
+                  />
+                </div>
+                <div className="flex flex-col mt-4">
+                  <div className="flex space-x-2">
                     <span className="text-xs">
                       11 to 14 years
                       <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                        95 000 FCFA
+                        97 556 FCFA
                       </span>
                     </span>
                   </div>
@@ -193,7 +208,7 @@ const Home = () => {
                     <span className="text-xs">
                       15 years and above
                       <span className="bg-gray-300 text-gray-900 px-1 ml-1">
-                        118 450 FCFA
+                        120 844 FCFA
                       </span>
                     </span>
                   </div>
