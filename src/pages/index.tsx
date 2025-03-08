@@ -36,8 +36,8 @@ const Home = () => {
     const price2 = (parseInt(data.fieldTwo) || 0) * 84975;
     const price3 = (parseInt(data.fieldThree) || 0) * 97575;
     const price4 = (parseInt(data.fieldFour) || 0) * 120850;
-    const price5 = (parseInt(data.fieldFive) || 0) * 31650;
-    const price6 = (parseInt(data.fieldSix) || 0) * 44350;
+    const price5 = (parseInt(data.fieldFive) || 0) * 40925;
+    const price6 = (parseInt(data.fieldSix) || 0) * 53500;
     const priceDiff1 = parseInt(data.fieldDiffOne) || 0;
 
     setPriceCANIMM(price1 + price2 + price3 + price4);
@@ -142,17 +142,17 @@ const Home = () => {
           </span>
           UK_TB Price
         </button>
-        <button
-          onClick={() => setSel(3)}
+        {/* <button
+          onClick={() => setSel(2)}
           className={`${
-            sel === 3 ? "bg-blue-50 text-black" : "text-blue-50"
+            sel === 2 ? "bg-blue-50 text-black" : "text-blue-50"
           } px-4 py-2 rounded-md text-xs flex`}
         >
           <span>
             <img src="/images/aus.png" className="w-4 h-4 mr-2" />
           </span>
           AUS_IMM Price
-        </button>
+        </button> */}
       </div>
       {sel === 0 && (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -218,13 +218,44 @@ const Home = () => {
           <div className="flex flex-col justify-center items-center">
             <PriceInput
               label="Less than 11 years"
-              price="31 650 FCFA"
+              price="40 925 FCFA"
               register={register("fieldFive")}
               defaultValue={defaultValue}
             />
             <PriceInput
               label="11 years and above"
-              price="44 350 FCFA"
+              price="53 500 FCFA"
+              register={register("fieldSix")}
+              defaultValue={defaultValue}
+            />
+            {familySize2 !== 0 && <FamilySizeDisplay size={familySize2} />}
+            <div className="flex gap-x-2 flex-row w-1/2">
+              <button
+                className="bg-blue-600 mt-4 w-full h-8 p-1 rounded-md text-sm"
+                type="submit"
+              >
+                Calculate
+              </button>
+              <button
+                className="bg-gray-500 mt-4 w-full h-8 p-1 text-sm rounded-md"
+                type="button"
+                onClick={toClear}
+              >
+                Clear
+              </button>
+            </div>
+            <h1 className="text-center my-4 bg-white text-blue-700 p-2 rounded-md">
+              {new Intl.NumberFormat("en-US").format(priceUKTB)} FCFA
+            </h1>
+          </div>
+        </form>
+      )}
+      {sel === 2 && (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="flex flex-col justify-center items-center">
+            <PriceInput
+              label="11 years and above"
+              price="40 925 FCFA"
               register={register("fieldSix")}
               defaultValue={defaultValue}
             />
