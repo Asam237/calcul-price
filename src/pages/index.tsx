@@ -13,6 +13,9 @@ type InputsCANIMM = {
   fieldDiffOne: string;
 };
 
+const surplus = (a: number, b: number) =>
+  parseFloat(String(a)) - parseFloat(String(b));
+
 const Home = () => {
   const [priceCANIMM, setPriceCANIMM] = useState(0);
   const [priceUKTB, setPriceUKTB] = useState(0);
@@ -340,20 +343,55 @@ const ReceiptAmount = ({
           Check
         </button>
       </div>
-      {priceCANIMM && parseInt(String(restOne)) < 0 ? (
-        <p className="bg-green-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
-          It is in good sale.
-        </p>
-      ) : parseInt(String(pp)) === 0 ? (
-        <p className="hidden"></p>
-      ) : (
-        <p className="bg-red-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
-          {new Intl.NumberFormat("en-US").format(restOne)} FCFA left to complete
-          the invoice
-        </p>
-      )}
+      <ReceiptMessage priceCANIMM={priceCANIMM} restOne={restOne} pp={pp} />
     </div>
   </div>
 );
+
+const ReceiptMessage = ({
+  priceCANIMM,
+  restOne,
+  pp,
+}: {
+  priceCANIMM: number;
+  restOne: number;
+  pp: number;
+}) => {
+  if (priceCANIMM && restOne < 0) {
+    return (
+      <p className="bg-green-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs text-center">
+        It is in good sale.
+        <br />
+        <span
+          className={`text-red-500 font-bold ${restOne === 0 ? "hidden" : ""}`}
+        >
+          The surplus on the receipt is{" "}
+          <b>{new Intl.NumberFormat("en-US").format(Math.abs(restOne))} FCFA</b>
+          .
+        </span>
+      </p>
+    );
+  }
+
+  if (pp === 0) {
+    return null;
+  }
+
+  if (restOne !== 0) {
+    return (
+      <p className="bg-red-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs">
+        {new Intl.NumberFormat("en-US").format(restOne)} FCFA left to complete
+        the invoice.
+      </p>
+    );
+  }
+  if (restOne == 0) {
+    return (
+      <p className="bg-green-300 text-gray-900 px-2 py-0.5 mt-4 rounded-md text-xs text-center">
+        It is in good sale.
+      </p>
+    );
+  }
+};
 
 export default Home;
