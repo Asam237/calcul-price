@@ -35,10 +35,10 @@ const Home = () => {
   } = useForm<InputsCANIMM>();
 
   const calculatePrices = (data: InputsCANIMM) => {
-    const price1 = (parseInt(data.fieldOne) || 0) * 80000;
+    const price1 = (parseInt(data.fieldOne) || 0) * 79100;
     const price2 = (parseInt(data.fieldTwo) || 0) * 82150;
     const price3 = (parseInt(data.fieldThree) || 0) * 94325;
-    const price4 = (parseInt(data.fieldFour) || 0) * 116820;
+    const price4 = (parseInt(data.fieldFour) || 0) * 116825;
     const price5 = (parseInt(data.fieldFive) || 0) * 40925;
     const price6 = (parseInt(data.fieldSix) || 0) * 53500;
     const priceDiff1 = parseInt(data.fieldDiffOne) || 0;
@@ -162,13 +162,14 @@ const Home = () => {
           <div className="flex flex-col justify-center items-center">
             <div>
               <PriceInput
-                label="Less than 6 years"
-                price="80 000 FCFA"
+                // label="Less than 6 years"
+                label="less than 4"
+                price="79 100 FCFA"
                 register={register("fieldOne")}
                 defaultValue={defaultValue}
               />
               <PriceInput
-                label="6 to 10 years"
+                label="5 to 10 years"
                 price="82 150 FCFA"
                 register={register("fieldTwo")}
                 defaultValue={defaultValue}
@@ -181,7 +182,7 @@ const Home = () => {
               />
               <PriceInput
                 label="15 years and above"
-                price="116 820 FCFA"
+                price="116 825 FCFA"
                 register={register("fieldFour")}
                 defaultValue={defaultValue}
               />
