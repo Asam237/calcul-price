@@ -35,12 +35,12 @@ const Home = () => {
   } = useForm<InputsCANIMM>();
 
   const calculatePrices = (data: InputsCANIMM) => {
-    const price1 = (parseInt(data.fieldOne) || 0) * 79100;
-    const price2 = (parseInt(data.fieldTwo) || 0) * 82150;
-    const price3 = (parseInt(data.fieldThree) || 0) * 94325;
-    const price4 = (parseInt(data.fieldFour) || 0) * 116825;
-    const price5 = (parseInt(data.fieldFive) || 0) * 40925;
-    const price6 = (parseInt(data.fieldSix) || 0) * 53500;
+    const price1 = (parseInt(data.fieldOne) || 0) * 74750;
+    const price2 = (parseInt(data.fieldTwo) || 0) * 77625;
+    const price3 = (parseInt(data.fieldThree) || 0) * 89125;
+    const price4 = (parseInt(data.fieldFour) || 0) * 110400;
+    const price5 = (parseInt(data.fieldFive) || 0) * 37375;
+    const price6 = (parseInt(data.fieldSix) || 0) * 48875;
     const priceDiff1 = parseInt(data.fieldDiffOne) || 0;
 
     setPriceCANIMM(price1 + price2 + price3 + price4);
@@ -164,25 +164,25 @@ const Home = () => {
               <PriceInput
                 // label="Less than 6 years"
                 label="less than 4"
-                price="79 100 FCFA"
+                price="74 750 FCFA"
                 register={register("fieldOne")}
                 defaultValue={defaultValue}
               />
               <PriceInput
                 label="5 to 10 years"
-                price="82 150 FCFA"
+                price="77 625 FCFA"
                 register={register("fieldTwo")}
                 defaultValue={defaultValue}
               />
               <PriceInput
                 label="11 to 14 years"
-                price="94 325 FCFA"
+                price="89 125 FCFA"
                 register={register("fieldThree")}
                 defaultValue={defaultValue}
               />
               <PriceInput
                 label="15 years and above"
-                price="116 825 FCFA"
+                price="110 400 FCFA"
                 register={register("fieldFour")}
                 defaultValue={defaultValue}
               />
@@ -222,13 +222,13 @@ const Home = () => {
           <div className="flex flex-col justify-center items-center">
             <PriceInput
               label="Less than 11 years"
-              price="40 925 FCFA"
+              price="37 375 FCFA"
               register={register("fieldFive")}
               defaultValue={defaultValue}
             />
             <PriceInput
               label="11 years and above"
-              price="53 500 FCFA"
+              price="48 875 FCFA"
               register={register("fieldSix")}
               defaultValue={defaultValue}
             />
