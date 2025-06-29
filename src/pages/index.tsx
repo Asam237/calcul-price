@@ -95,7 +95,7 @@ const Home = () => {
               OIM Price Calculator
             </h1>
             <p className="text-blue-100 text-lg lg:text-xl">
-              International Organization for Migration
+              Organisation Internationale pour les Migrations
             </p>
           </div>
 
