@@ -11,14 +11,19 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       <Head>
-        <title>CAN_IMM - UK  |  Price Calculator</title>
+        <title>CAN_IMM - UK | Price Calculator</title>
       </Head>
-      <div className={cn(EuclidUiDisplay.variable, "h-screen flex flex-col overflow-hidden")}>
-        <main className="flex-1 overflow-hidden">
+      <div
+        className={cn(EuclidUiDisplay.variable, "min-h-screen flex flex-col")}
+      >
+        <main className="flex-1 flex items-center justify-center p-4">
           {children}
         </main>
-        <footer className="flex-shrink-0 flex justify-center items-center py-2 bg-black/10 backdrop-blur-sm">
-          <p className="text-xs text-white/70">© {new Date().getFullYear()} - Organisation Internationale pour les Migrations</p>
+        <footer className="flex justify-center items-center py-4 bg-black/10 backdrop-blur-sm">
+          <p className="text-sm text-white/70">
+            Copyright © {new Date().getFullYear()} - Organisation Internationale
+            pour les Migrations
+          </p>
         </footer>
       </div>
     </>
