@@ -4,18 +4,18 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb {
     background: rgba(0, 114, 188, 0.5);
-    border-radius: 4px;
+    border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -26,15 +26,17 @@
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: clamp(1rem, 0.21vw + 0.95rem, 1.125rem);
+    font-size: clamp(0.875rem, 0.21vw + 0.85rem, 1rem);
+    height: 100%;
+    overflow: hidden;
   }
 
   body {
     @apply text-gray-700 font-light;
     background: linear-gradient(135deg, #0072BC 0%, #005A94 50%, #003D66 100%);
-    min-height: 100vh;
+    height: 100vh;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   body::before {
@@ -71,19 +73,25 @@
   }
 
   h1 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-  }
-
-  h2 {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
   }
 
-  h3 {
+  h2 {
     font-size: clamp(1.25rem, 2.5vw, 2rem);
   }
 
-  h4 {
+  h3 {
     font-size: clamp(1.125rem, 2vw, 1.5rem);
+  }
+
+  h4 {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+  }
+
+  /* Prevent any scrolling */
+  #__next {
+    height: 100vh;
+    overflow: hidden;
   }
 }
 
@@ -154,45 +162,51 @@
   }
 
   .input-modern {
-    @apply w-full px-4 py-3 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md;
+    @apply w-full px-3 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm hover:shadow-md text-sm;
   }
 
-  /* Responsive grid improvements */
-  @media (min-width: 1024px) {
-    .sticky-calculator {
-      position: sticky;
-      top: 2rem;
-    }
+  /* No scroll layout utilities */
+  .no-scroll-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Enhanced fullscreen experience */
-  .fullscreen-container {
-    @apply min-h-screen flex flex-col;
+  .scrollable-content {
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
   }
 
-  .fullscreen-content {
-    @apply flex-1 flex items-center justify-center p-4 lg:p-8;
+  /* Compact spacing for no-scroll layout */
+  .compact-spacing {
+    @apply space-y-2;
   }
 
-  /* Better spacing for large screens */
-  @media (min-width: 1280px) {
-    .xl-spacing {
-      @apply space-y-8;
-    }
-    
-    .xl-gap {
-      @apply gap-12;
-    }
+  .compact-padding {
+    @apply p-3;
   }
 
-  /* Improved mobile experience */
+  .compact-text {
+    @apply text-sm;
+  }
+
+  /* Enhanced mobile experience for no-scroll */
   @media (max-width: 768px) {
-    .mobile-stack {
-      @apply space-y-6;
+    .mobile-compact {
+      @apply space-y-2 text-xs;
     }
     
-    .mobile-full {
-      @apply w-full;
+    .mobile-grid {
+      @apply grid-cols-1 gap-2;
+    }
+  }
+
+  /* Large screen optimizations for no-scroll */
+  @media (min-width: 1024px) {
+    .lg-compact {
+      @apply space-y-3;
     }
   }
 }

@@ -5,7 +5,7 @@ import { AdminPanel } from '@/components/AdminPanel';
 import { usePriceConfig } from '@/hooks/usePriceConfig';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { FaExclamation, FaCog, FaCalculator, FaGlobe, FaInfoCircle, FaExpand } from 'react-icons/fa';
+import { FaExclamation, FaCog, FaCalculator, FaInfoCircle, FaExpand } from 'react-icons/fa';
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<'can_imm' | 'uk_tb' | 'aus_imm'>('can_imm');
@@ -33,132 +33,134 @@ const Home = () => {
 
   return (
     <DefaultLayout>
-      <div className="w-full max-w-7xl mx-auto relative z-10">
+      <div className="h-full flex flex-col overflow-hidden">
         {/* Fullscreen Toggle */}
         <button
           onClick={toggleFullscreen}
-          className="fixed top-4 right-4 z-50 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+          className="fixed top-4 right-4 z-50 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
         >
-          <FaExpand size={16} className="text-white" />
+          <FaExpand size={14} className="text-white" />
         </button>
 
-        {/* Header Section */}
-        <div className="text-center mb-8 lg:mb-12">
-          <div className="flex items-center justify-center space-x-6 mb-6">
+        {/* Compact Header */}
+        <div className="flex-shrink-0 text-center py-4 px-4">
+          <div className="flex items-center justify-center space-x-4 mb-3">
             <div className="floating-animation">
-              <img src="/images/logo-02.png" alt="OIM Logo" className="w-auto h-16 lg:h-24 drop-shadow-2xl" />
+              <img src="/images/logo-02.png" alt="OIM Logo" className="w-auto h-12 drop-shadow-2xl" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-white drop-shadow-lg">
+                OIM Price Calculator
+              </h1>
+              <p className="text-blue-100 text-sm">
+                Organisation Internationale pour les Migrations
+              </p>
             </div>
             <button
               onClick={() => setShowInfo(!showInfo)}
-              className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+              className="w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
             >
-              <FaInfoCircle size={16} className="text-white" />
+              <FaInfoCircle size={14} className="text-white" />
             </button>
           </div>
 
-          <div className="mb-8">
-            <h1 className="text-3xl lg:text-5xl font-bold text-white mb-3 drop-shadow-lg">
-              OIM Price Calculator
-            </h1>
-            <p className="text-blue-100 text-lg lg:text-xl">
-              Organisation Internationale pour les Migrations
-            </p>
-          </div>
-
-          {showInfo && (
-            <Card className="max-w-md mx-auto mb-8 slide-in">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaExclamation className="text-white text-lg" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Payment Information</h3>
-                <div className="space-y-3 text-sm">
-                  <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-3 rounded-lg">
-                    <div className="font-semibold text-gray-700 mb-1">Bank</div>
-                    <div className="text-blue-600 font-bold">ECOBANK</div>
-                  </div>
-                  <div className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg">
-                    <div className="font-semibold text-gray-700 mb-1">Account Number</div>
-                    <div className="text-green-600 font-bold text-lg">30830023091</div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          )}
-
           {/* Mode Toggle */}
-          <div className="flex justify-center space-x-4 mb-8">
+          <div className="flex justify-center space-x-3 mb-4">
             <Button
               onClick={() => setIsAdminMode(false)}
               variant={!isAdminMode ? 'primary' : 'secondary'}
-              className="flex items-center space-x-2 shadow-xl"
-              size="lg"
+              className="flex items-center space-x-2"
+              size="sm"
             >
-              <FaCalculator size={18} />
+              <FaCalculator size={14} />
               <span>Calculator</span>
             </Button>
             <Button
               onClick={() => setIsAdminMode(true)}
               variant={isAdminMode ? 'primary' : 'secondary'}
-              className="flex items-center space-x-2 shadow-xl"
-              size="lg"
+              className="flex items-center space-x-2"
+              size="sm"
             >
-              <FaCog size={18} />
+              <FaCog size={14} />
               <span>Administration</span>
             </Button>
           </div>
+
+          {/* Info Panel - Compact */}
+          {showInfo && (
+            <div className="max-w-sm mx-auto mb-4 slide-in">
+              <Card className="p-4">
+                <div className="text-center">
+                  <h3 className="text-sm font-bold text-gray-800 mb-3">Payment Information</h3>
+                  <div className="grid grid-cols-2 gap-3 text-xs">
+                    <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-2 rounded-lg">
+                      <div className="font-semibold text-gray-700">Bank</div>
+                      <div className="text-blue-600 font-bold">ECOBANK</div>
+                    </div>
+                    <div className="bg-gradient-to-r from-green-50 to-green-100 p-2 rounded-lg">
+                      <div className="font-semibold text-gray-700">Account</div>
+                      <div className="text-green-600 font-bold">30830023091</div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          )}
         </div>
 
-        {!isAdminMode ? (
-          <div className="grid lg:grid-cols-2 gap-8 xl:gap-12 items-start">
-            {/* Left Column - Category Selection */}
-            <div className="space-y-6">
-              <div className="text-center lg:text-left">
-                <h2 className="text-2xl font-bold text-white mb-4">Select Category</h2>
-                <p className="text-blue-100 mb-6">Choose the type of medical examination</p>
-              </div>
-              
-              <div className="grid gap-4">
-                {categories.map(category => (
-                  <Button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    variant={selectedCategory === category.id ? 'primary' : 'outline'}
-                    className="flex items-center justify-start space-x-4 p-6 text-left shadow-lg h-auto"
-                    size="lg"
-                  >
-                    <img src={category.flag} className="w-8 h-8 rounded-sm shadow-sm" alt={category.label} />
-                    <div>
-                      <div className="font-bold text-lg">{category.label}</div>
-                      <div className="text-sm opacity-80">
-                        {priceConfig.filter(item => item.category === category.id).length} price options
+        {/* Main Content Area */}
+        <div className="flex-1 overflow-hidden px-4">
+          {!isAdminMode ? (
+            <div className="h-full grid lg:grid-cols-3 gap-4">
+              {/* Left Column - Category Selection - Compact */}
+              <div className="lg:col-span-1 flex flex-col">
+                <div className="text-center lg:text-left mb-3">
+                  <h2 className="text-lg font-bold text-white mb-1">Select Category</h2>
+                  <p className="text-blue-100 text-sm">Choose examination type</p>
+                </div>
+                
+                <div className="flex lg:flex-col gap-2 flex-1">
+                  {categories.map(category => (
+                    <Button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.id)}
+                      variant={selectedCategory === category.id ? 'primary' : 'outline'}
+                      className="flex items-center justify-start space-x-3 p-3 text-left shadow-lg h-auto flex-1 lg:flex-none"
+                      size="sm"
+                    >
+                      <img src={category.flag} className="w-6 h-6 rounded-sm shadow-sm" alt={category.label} />
+                      <div className="text-left">
+                        <div className="font-bold text-sm">{category.label}</div>
+                        <div className="text-xs opacity-80">
+                          {priceConfig.filter(item => item.category === category.id).length} options
+                        </div>
                       </div>
-                    </div>
-                  </Button>
-                ))}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column - Price Calculator */}
+              <div className="lg:col-span-2 overflow-hidden">
+                <PriceCalculator 
+                  priceConfig={priceConfig} 
+                  category={selectedCategory} 
+                />
               </div>
             </div>
-
-            {/* Right Column - Price Calculator */}
-            <div className="lg:sticky lg:top-8">
-              <PriceCalculator 
-                priceConfig={priceConfig} 
-                category={selectedCategory} 
+          ) : (
+            /* Admin Panel - Full Width with scroll */
+            <div className="h-full overflow-y-auto">
+              <AdminPanel
+                priceConfig={priceConfig}
+                onUpdatePrice={updatePrice}
+                onAddItem={addPriceItem}
+                onRemoveItem={removePriceItem}
+                onResetToDefault={resetToDefault}
               />
             </div>
-          </div>
-        ) : (
-          /* Admin Panel - Full Width */
-          <div className="w-full">
-            <AdminPanel
-              priceConfig={priceConfig}
-              onUpdatePrice={updatePrice}
-              onAddItem={addPriceItem}
-              onRemoveItem={removePriceItem}
-              onResetToDefault={resetToDefault}
-            />
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </DefaultLayout>
   );

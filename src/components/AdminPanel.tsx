@@ -68,78 +68,80 @@ export const AdminPanel = ({
   }, {} as Record<string, PriceConfig[]>);
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl floating-animation">
-          <FaCog className="text-white text-3xl" />
+    <div className="space-y-6">
+      {/* Compact Header */}
+      <div className="text-center mb-6">
+        <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-3 shadow-xl floating-animation">
+          <FaCog className="text-white text-2xl" />
         </div>
-        <h2 className="text-3xl font-bold text-white mb-2">Price Administration</h2>
-        <p className="text-blue-100">Manage pricing configuration for all categories</p>
+        <h2 className="text-2xl font-bold text-white mb-1">Price Administration</h2>
+        <p className="text-blue-100 text-sm">Manage pricing configuration for all categories</p>
       </div>
 
       {/* Action Buttons */}
-      <div className="flex justify-center space-x-4 mb-8">
+      <div className="flex justify-center space-x-3 mb-6">
         <Button 
           onClick={() => setIsAddModalOpen(true)} 
-          className="flex items-center space-x-2 shadow-xl"
+          className="flex items-center space-x-2"
+          size="sm"
         >
-          <FaPlus size={16} />
+          <FaPlus size={14} />
           <span>Add New Price</span>
         </Button>
         <Button 
           onClick={onResetToDefault} 
           variant="outline"
           className="flex items-center space-x-2"
+          size="sm"
         >
-          <FaUndo size={16} />
+          <FaUndo size={14} />
           <span>Reset to Default</span>
         </Button>
       </div>
 
-      {/* Categories Grid */}
-      <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+      {/* Categories Grid - Compact */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {Object.entries(groupedConfig).map(([category, items]) => (
-          <Card key={category} className="slide-in">
-            <div className="text-center mb-6">
-              <div className={`w-12 h-12 bg-gradient-to-r ${categoryColors[category as keyof typeof categoryColors]} rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg`}>
-                <FaDollarSign className="text-white text-lg" />
+          <Card key={category} className="slide-in p-4">
+            <div className="text-center mb-4">
+              <div className={`w-10 h-10 bg-gradient-to-r ${categoryColors[category as keyof typeof categoryColors]} rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg`}>
+                <FaDollarSign className="text-white text-sm" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800">
+              <h3 className="text-lg font-bold text-gray-800">
                 {categoryLabels[category as keyof typeof categoryLabels]}
               </h3>
-              <div className="text-sm text-gray-600 mt-1">
+              <div className="text-xs text-gray-600 mt-1">
                 {items.length} price {items.length === 1 ? 'item' : 'items'}
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {items.map(item => (
-                <div key={item.id} className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
+                <div key={item.id} className="bg-gradient-to-r from-gray-50 to-gray-100 p-3 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
-                      <div className="font-semibold text-gray-800 mb-1">{item.label}</div>
-                      <div className="text-lg font-bold text-blue-600">
+                      <div className="font-semibold text-gray-800 mb-1 text-sm">{item.label}</div>
+                      <div className="text-sm font-bold text-blue-600">
                         {new Intl.NumberFormat('en-US').format(item.price)} FCFA
                       </div>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-1">
                       <Button 
                         size="sm" 
                         onClick={() => startEdit(item)} 
-                        className="flex items-center space-x-1 shadow-md"
+                        className="flex items-center space-x-1 px-2 py-1 text-xs"
                       >
-                        <FaEdit size={12} />
+                        <FaEdit size={10} />
                         <span>Edit</span>
                       </Button>
                       <Button 
                         size="sm" 
                         variant="danger" 
                         onClick={() => onRemoveItem(item.id)}
-                        className="flex items-center space-x-1 shadow-md"
+                        className="flex items-center space-x-1 px-2 py-1 text-xs"
                       >
-                        <FaTrash size={12} />
-                        <span>Delete</span>
+                        <FaTrash size={10} />
+                        <span>Del</span>
                       </Button>
                     </div>
                   </div>
@@ -156,7 +158,7 @@ export const AdminPanel = ({
         onClose={() => setIsAddModalOpen(false)}
         title="Add New Price Item"
       >
-        <form onSubmit={handleSubmitAdd(onAddSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmitAdd(onAddSubmit)} className="space-y-4">
           <Input
             {...registerAdd('label', { required: true })}
             label="Age Group Label"
@@ -184,8 +186,8 @@ export const AdminPanel = ({
             </select>
           </div>
           <div className="flex space-x-3 pt-4">
-            <Button type="submit" className="flex-1">Add Price Item</Button>
-            <Button type="button" variant="outline" onClick={() => setIsAddModalOpen(false)} className="flex-1">
+            <Button type="submit" className="flex-1" size="sm">Add Price Item</Button>
+            <Button type="button" variant="outline" onClick={() => setIsAddModalOpen(false)} className="flex-1" size="sm">
               Cancel
             </Button>
           </div>
@@ -198,7 +200,7 @@ export const AdminPanel = ({
         onClose={() => setEditingItem(null)}
         title={`Edit: ${editingItem?.label}`}
       >
-        <form onSubmit={handleSubmitEdit(onEditSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmitEdit(onEditSubmit)} className="space-y-4">
           <Input
             {...registerEdit('price', { required: true, valueAsNumber: true })}
             label="Price (FCFA)"
@@ -207,8 +209,8 @@ export const AdminPanel = ({
             icon={<FaDollarSign />}
           />
           <div className="flex space-x-3 pt-4">
-            <Button type="submit" className="flex-1">Update Price</Button>
-            <Button type="button" variant="outline" onClick={() => setEditingItem(null)} className="flex-1">
+            <Button type="submit" className="flex-1" size="sm">Update Price</Button>
+            <Button type="button" variant="outline" onClick={() => setEditingItem(null)} className="flex-1" size="sm">
               Cancel
             </Button>
           </div>
