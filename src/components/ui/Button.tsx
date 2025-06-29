@@ -3,7 +3,7 @@ import cn from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'outline';
+  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'outline' | 'clear';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -21,7 +21,8 @@ export const Button = ({
     secondary: 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm border border-white/30 hover:border-white/50 focus:ring-white/50',
     danger: 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white focus:ring-red-500 shadow-red-500/25',
     success: 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white focus:ring-green-500 shadow-green-500/25',
-    outline: 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 backdrop-blur-sm focus:ring-white/50'
+    outline: 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white/50 backdrop-blur-sm focus:ring-white/50',
+    clear: 'bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white focus:ring-gray-500 shadow-gray-500/25 border-2 border-gray-400 hover:border-gray-300'
   };
 
   const sizes = {

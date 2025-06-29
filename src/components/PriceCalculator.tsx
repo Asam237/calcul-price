@@ -4,7 +4,7 @@ import { PriceConfig, FormInputs } from '@/types';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { FaUsers, FaUser, FaCalculator, FaEraser, FaReceipt } from 'react-icons/fa';
+import { FaUsers, FaUser, FaCalculator, FaEraser, FaReceipt, FaCheck } from 'react-icons/fa';
 
 interface PriceCalculatorProps {
   priceConfig: PriceConfig[];
@@ -16,6 +16,7 @@ export const PriceCalculator = ({ priceConfig, category }: PriceCalculatorProps)
   const [familySize, setFamilySize] = useState(0);
   const [receiptAmount, setReceiptAmount] = useState(0);
   const [remaining, setRemaining] = useState(0);
+  const [showPaymentResult, setShowPaymentResult] = useState(false);
 
   const { register, handleSubmit, reset, watch } = useForm<FormInputs>();
 
@@ -38,6 +39,7 @@ export const PriceCalculator = ({ priceConfig, category }: PriceCalculatorProps)
   const handleReceiptCheck = () => {
     const remaining = totalPrice - receiptAmount;
     setRemaining(remaining);
+    setShowPaymentResult(true);
   };
 
   const clearForm = () => {
@@ -46,6 +48,7 @@ export const PriceCalculator = ({ priceConfig, category }: PriceCalculatorProps)
     setFamilySize(0);
     setReceiptAmount(0);
     setRemaining(0);
+    setShowPaymentResult(false);
   };
 
   return (
@@ -103,7 +106,7 @@ export const PriceCalculator = ({ priceConfig, category }: PriceCalculatorProps)
               <FaCalculator size={16} />
               <span>Calculate</span>
             </Button>
-            <Button type="button" variant="outline" onClick={clearForm} className="flex-1 flex items-center justify-center space-x-2">
+            <Button type="button" variant="clear" onClick={clearForm} className="flex-1 flex items-center justify-center space-x-2">
               <FaEraser size={16} />
               <span>Clear</span>
             </Button>
@@ -135,34 +138,53 @@ export const PriceCalculator = ({ priceConfig, category }: PriceCalculatorProps)
               type="number"
               placeholder="Enter receipt amount"
               value={receiptAmount || ''}
-              onChange={(e) => setReceiptAmount(parseInt(e.target.value) || 0)}
+              onChange={(e) => {
+                setReceiptAmount(parseInt(e.target.value) || 0);
+                setShowPaymentResult(false); // Reset result when amount changes
+              }}
               className="text-center font-semibold text-lg"
             />
             
-            <Button onClick={handleReceiptCheck} variant="success" className="w-full">
-              Verify Payment
+            <Button 
+              onClick={handleReceiptCheck} 
+              variant="success" 
+              className="w-full flex items-center justify-center space-x-2"
+              disabled={!receiptAmount}
+            >
+              <FaCheck size={16} />
+              <span>Verify Payment</span>
             </Button>
 
-            {receiptAmount > 0 && (
-              <div className="mt-4">
+            {showPaymentResult && receiptAmount > 0 && (
+              <div className="mt-4 slide-in">
                 {remaining === 0 && (
-                  <div className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 p-4 rounded-xl text-center font-semibold">
-                    ✅ Payment Complete
+                  <div className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 p-4 rounded-xl text-center font-semibold border-2 border-green-300">
+                    <div className="flex items-center justify-center space-x-2 mb-2">
+                      <FaCheck className="text-green-600" />
+                      <span className="text-lg font-bold">Payment Complete</span>
+                    </div>
+                    <div className="text-sm">All amounts match perfectly!</div>
                   </div>
                 )}
                 {remaining > 0 && (
-                  <div className="bg-gradient-to-r from-red-100 to-red-200 text-red-800 p-4 rounded-xl text-center">
-                    <div className="font-semibold">⚠️ Payment Incomplete</div>
-                    <div className="text-lg font-bold mt-1">
+                  <div className="bg-gradient-to-r from-red-100 to-red-200 text-red-800 p-4 rounded-xl text-center border-2 border-red-300">
+                    <div className="font-semibold text-lg mb-2">⚠️ Payment Incomplete</div>
+                    <div className="text-xl font-bold">
                       {new Intl.NumberFormat('en-US').format(remaining)} FCFA remaining
+                    </div>
+                    <div className="text-sm mt-1 opacity-80">
+                      Please complete the payment
                     </div>
                   </div>
                 )}
                 {remaining < 0 && (
-                  <div className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 p-4 rounded-xl text-center">
-                    <div className="font-semibold">✅ Payment Complete</div>
+                  <div className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 p-4 rounded-xl text-center border-2 border-green-300">
+                    <div className="flex items-center justify-center space-x-2 mb-2">
+                      <FaCheck className="text-green-600" />
+                      <span className="text-lg font-bold">Payment Complete</span>
+                    </div>
                     <div className="text-sm mt-1">
-                      Surplus: {new Intl.NumberFormat('en-US').format(Math.abs(remaining))} FCFA
+                      <span className="font-semibold">Surplus:</span> {new Intl.NumberFormat('en-US').format(Math.abs(remaining))} FCFA
                     </div>
                   </div>
                 )}
