@@ -1,0 +1,15 @@
+import { ReactNode } from 'react';
+import cn from 'clsx';
+
+interface CardProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export const Card = ({ children, className }: CardProps) => {
+  return (
+    <div className={cn('bg-white rounded-xl shadow-lg p-6', className)}>
+      {children}
+    </div>
+  );
+};

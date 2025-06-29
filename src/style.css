@@ -4,33 +4,69 @@
 
 @layer base {
   ::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
   }
 
   html {
     text-rendering: optimizeSpeed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: clamp(1.12rem, 0.21vw + 1.1rem, 1.25rem);
+    font-size: clamp(1rem, 0.21vw + 0.95rem, 1.125rem);
   }
 
   body {
     @apply text-gray-300 font-light;
-    background: rgb(38, 19, 123);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
   }
-  h1 {
+
+  h1, h2, h3, h4, h5, h6 {
     color: white;
-    size: 2.8rem;
-    font-weight: 800;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2.5rem;
   }
 
   h2 {
-    color: white;
-    font-weight: 800;
+    font-size: 2rem;
   }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
   h4 {
-    color: white;
-    font-weight: 800;
+    font-size: 1.25rem;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
   }
 }
