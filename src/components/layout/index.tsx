@@ -13,14 +13,14 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
       <Head>
         <title>CAN_IMM - UK  |  Price Calculator</title>
       </Head>
-      <div className={cn(EuclidUiDisplay.variable)}>
-        <div className="flex justify-center items-center mt-10">
-          <main>{children}</main>
-        </div>
+      <div className={cn(EuclidUiDisplay.variable, "min-h-screen flex flex-col")}>
+        <main className="flex-1 flex items-center justify-center p-4">
+          {children}
+        </main>
+        <footer className="flex justify-center items-center py-4 bg-black/10 backdrop-blur-sm">
+          <p className="text-sm text-white/70">Copyright © {new Date().getFullYear()} - Organisation Internationale pour les Migrations</p>
+        </footer>
       </div>
-      <footer className="flex justify-center items-center pt-4 pb-6">
-        <p className="text-[14px] text-gray-300">Copyright © {new Date().getFullYear()}</p>
-      </footer>
     </>
   );
 };
