@@ -4,6 +4,7 @@ import { PriceConfig, FormInputs } from '@/types';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { FaUsers, FaUser, FaCalculator, FaEraser, FaReceipt } from 'react-icons/fa';
 
 interface PriceCalculatorProps {
   priceConfig: PriceConfig[];
@@ -48,96 +49,128 @@ export const PriceCalculator = ({ priceConfig, category }: PriceCalculatorProps)
   };
 
   return (
-    <Card className="max-w-md mx-auto">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {categoryPrices.map(item => (
-          <div key={item.id} className="space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium text-gray-700">{item.label}</span>
-              <span className="text-xs bg-gray-100 px-2 py-1 rounded">
-                {new Intl.NumberFormat('en-US').format(item.price)} FCFA
-              </span>
-            </div>
-            <Input
-              {...register(item.id)}
-              type="number"
-              min="0"
-              defaultValue="0"
-              className="text-center"
-            />
+    <div className="max-w-lg mx-auto space-y-6">
+      <Card className="floating-animation">
+        <div className="text-center mb-6">
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <FaCalculator className="text-white text-2xl" />
           </div>
-        ))}
-
-        {familySize > 0 && (
-          <div className="bg-blue-50 p-3 rounded-lg text-center">
-            <div className="flex items-center justify-center space-x-2">
-              <img 
-                src={familySize === 1 ? "/images/man.png" : "/images/families.png"} 
-                className="w-5 h-5" 
-                alt="family"
-              />
-              <span className="text-sm font-medium text-blue-800">
-                Family size: {familySize}
-              </span>
-            </div>
-          </div>
-        )}
-
-        <div className="flex space-x-2">
-          <Button type="submit" className="flex-1">
-            Calculate
-          </Button>
-          <Button type="button" variant="secondary" onClick={clearForm} className="flex-1">
-            Clear
-          </Button>
+          <h3 className="text-xl font-bold text-gray-800 mb-2">Price Calculator</h3>
+          <p className="text-gray-600">Enter the number of people for each age group</p>
         </div>
 
-        {totalPrice > 0 && (
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-lg text-center">
-            <h3 className="text-lg font-bold">
-              {new Intl.NumberFormat('en-US').format(totalPrice)} FCFA
-            </h3>
-          </div>
-        )}
-      </form>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {categoryPrices.map(item => (
+            <div key={item.id} className="space-y-3">
+              <div className="flex justify-between items-center p-3 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl">
+                <div>
+                  <span className="font-semibold text-gray-800">{item.label}</span>
+                  <div className="text-sm text-blue-600 font-medium">
+                    {new Intl.NumberFormat('en-US').format(item.price)} FCFA
+                  </div>
+                </div>
+                <div className="w-20">
+                  <Input
+                    {...register(item.id)}
+                    type="number"
+                    min="0"
+                    defaultValue="0"
+                    className="text-center font-semibold"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
 
-      {totalPrice > 0 && (
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-          <h4 className="text-sm font-medium text-gray-700 mb-3">Receipt Verification</h4>
-          <div className="flex space-x-2">
-            <Input
-              type="number"
-              placeholder="Receipt amount"
-              value={receiptAmount}
-              onChange={(e) => setReceiptAmount(parseInt(e.target.value) || 0)}
-              className="flex-1"
-            />
-            <Button onClick={handleReceiptCheck} variant="success" size="sm">
-              Check
+          {familySize > 0 && (
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-xl text-center shadow-lg pulse-glow">
+              <div className="flex items-center justify-center space-x-3">
+                {familySize === 1 ? (
+                  <FaUser className="text-2xl" />
+                ) : (
+                  <FaUsers className="text-2xl" />
+                )}
+                <div>
+                  <div className="text-sm opacity-90">Family Size</div>
+                  <div className="text-2xl font-bold">{familySize}</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="flex space-x-3">
+            <Button type="submit" className="flex-1 flex items-center justify-center space-x-2">
+              <FaCalculator size={16} />
+              <span>Calculate</span>
+            </Button>
+            <Button type="button" variant="outline" onClick={clearForm} className="flex-1 flex items-center justify-center space-x-2">
+              <FaEraser size={16} />
+              <span>Clear</span>
             </Button>
           </div>
 
-          {receiptAmount > 0 && (
-            <div className="mt-3">
-              {remaining === 0 && (
-                <div className="bg-green-100 text-green-800 p-2 rounded text-sm text-center">
-                  ✓ Payment is complete
-                </div>
-              )}
-              {remaining > 0 && (
-                <div className="bg-red-100 text-red-800 p-2 rounded text-sm text-center">
-                  {new Intl.NumberFormat('en-US').format(remaining)} FCFA remaining
-                </div>
-              )}
-              {remaining < 0 && (
-                <div className="bg-green-100 text-green-800 p-2 rounded text-sm text-center">
-                  ✓ Payment complete with {new Intl.NumberFormat('en-US').format(Math.abs(remaining))} FCFA surplus
-                </div>
-              )}
+          {totalPrice > 0 && (
+            <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl text-center shadow-xl">
+              <div className="text-sm opacity-90 mb-1">Total Amount</div>
+              <h3 className="text-3xl font-bold">
+                {new Intl.NumberFormat('en-US').format(totalPrice)} FCFA
+              </h3>
             </div>
           )}
-        </div>
+        </form>
+      </Card>
+
+      {totalPrice > 0 && (
+        <Card className="slide-in">
+          <div className="text-center mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <FaReceipt className="text-white text-lg" />
+            </div>
+            <h4 className="text-lg font-bold text-gray-800">Receipt Verification</h4>
+            <p className="text-gray-600 text-sm">Verify payment amount</p>
+          </div>
+          
+          <div className="space-y-4">
+            <Input
+              type="number"
+              placeholder="Enter receipt amount"
+              value={receiptAmount || ''}
+              onChange={(e) => setReceiptAmount(parseInt(e.target.value) || 0)}
+              className="text-center font-semibold text-lg"
+            />
+            
+            <Button onClick={handleReceiptCheck} variant="success" className="w-full">
+              Verify Payment
+            </Button>
+
+            {receiptAmount > 0 && (
+              <div className="mt-4">
+                {remaining === 0 && (
+                  <div className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 p-4 rounded-xl text-center font-semibold">
+                    ✅ Payment Complete
+                  </div>
+                )}
+                {remaining > 0 && (
+                  <div className="bg-gradient-to-r from-red-100 to-red-200 text-red-800 p-4 rounded-xl text-center">
+                    <div className="font-semibold">⚠️ Payment Incomplete</div>
+                    <div className="text-lg font-bold mt-1">
+                      {new Intl.NumberFormat('en-US').format(remaining)} FCFA remaining
+                    </div>
+                  </div>
+                )}
+                {remaining < 0 && (
+                  <div className="bg-gradient-to-r from-green-100 to-green-200 text-green-800 p-4 rounded-xl text-center">
+                    <div className="font-semibold">✅ Payment Complete</div>
+                    <div className="text-sm mt-1">
+                      Surplus: {new Intl.NumberFormat('en-US').format(Math.abs(remaining))} FCFA
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </Card>
       )}
-    </Card>
+    </div>
   );
 };
