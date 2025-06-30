@@ -20,7 +20,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
           {children}
         </main>
         <footer className="flex justify-center items-center py-4 bg-black/10 backdrop-blur-sm">
-          <p className="text-sm text-white/70">
+          <p className="text-sm text-white/70 text-center">
             Copyright © {new Date().getFullYear()} - Organisation Internationale
             pour les Migrations
           </p>

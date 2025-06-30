@@ -64,14 +64,6 @@ const Home = () => {
   return (
     <DefaultLayout>
       <div className="w-full max-w-7xl mx-auto relative z-10">
-        {/* Fullscreen Toggle */}
-        <button
-          onClick={toggleFullscreen}
-          className="fixed top-4 right-4 z-50 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
-        >
-          <FaExpand size={16} className="text-white" />
-        </button>
-
         {/* Header Section */}
         <div className="text-center mb-8 lg:mb-12">
           <div className="flex items-center justify-center space-x-6 mb-6">
