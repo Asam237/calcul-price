@@ -19,7 +19,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <main className="flex-1 flex items-center justify-center p-4">
           {children}
         </main>
-        <footer className="flex justify-center items-center py-4 bg-black/10 backdrop-blur-sm">
+        <footer className="flex justify-center items-center py-4 bg-black/10 backdrop-blur-sm mt-10">
           <p className="text-sm text-white/70 text-center">
             Copyright © {new Date().getFullYear()} - Organisation Internationale
             pour les Migrations

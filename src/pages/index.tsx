@@ -9,9 +9,7 @@ import {
   FaExclamation,
   FaCog,
   FaCalculator,
-  FaGlobe,
   FaInfoCircle,
-  FaExpand,
 } from "react-icons/fa";
 
 const Home = () => {
