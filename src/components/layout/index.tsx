@@ -21,8 +21,8 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         </main>
         <footer className="flex justify-center items-center py-4 bg-black/10 backdrop-blur-sm mt-10">
           <p className="text-sm text-white/70 text-center">
-            Copyright © {new Date().getFullYear()} - Organisation Internationale
-            pour les Migrations
+            Copyright © {new Date().getFullYear()} - International Organization
+            for Migration
           </p>
         </footer>
       </div>

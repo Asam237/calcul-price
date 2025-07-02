@@ -10,7 +10,11 @@ import {
   FaCog,
   FaCalculator,
   FaInfoCircle,
+  FaLockOpen,
+  FaLock,
 } from "react-icons/fa";
+import Link from "next/link";
+import { useAuth } from "@/hooks/useAuth";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<
@@ -19,6 +23,7 @@ const Home = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [isAdminMode, setIsAdminMode] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   const {
     priceConfig,
@@ -72,12 +77,40 @@ const Home = () => {
                 className="w-auto h-16 lg:h-24 drop-shadow-2xl"
               />
             </div>
-            <button
-              onClick={() => setShowInfo(!showInfo)}
-              className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
-            >
-              <FaInfoCircle size={16} className="text-white" />
-            </button>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setShowInfo(!showInfo)}
+                className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+              >
+                <FaExclamation size={16} className="text-white" />
+              </button>
+
+              <Link
+                href="/admin"
+                className="group relative w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 backdrop-blur-sm border border-purple-300/30 hover:border-purple-300/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg overflow-hidden"
+              >
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 to-pink-400/0 group-hover:from-purple-400/20 group-hover:to-pink-400/20 transition-all duration-300"></div>
+
+                {/* Icon with conditional styling */}
+                {isAuthenticated ? (
+                  <FaLockOpen
+                    size={16}
+                    className="text-white relative z-10 group-hover:rotate-90 transition-transform duration-300"
+                  />
+                ) : (
+                  <FaLock
+                    size={16}
+                    className="text-white relative z-10 group-hover:scale-110 transition-transform duration-300"
+                  />
+                )}
+
+                {/* Tooltip */}
+                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                  {isAuthenticated ? "Administration" : "Admin Login"}
+                </div>
+              </Link>
+            </div>
           </div>
 
           <div className="mb-8">
@@ -85,7 +118,7 @@ const Home = () => {
               OIM Price Calculator
             </h1>
             <p className="text-blue-100 text-lg lg:text-xl">
-              Organisation Internationale pour les Migrations
+              International Organization for Migration
             </p>
           </div>
 
@@ -115,95 +148,59 @@ const Home = () => {
               </div>
             </Card>
           )}
-
-          {/* Mode Toggle */}
-          <div className="flex justify-center space-x-4 mb-8">
-            <Button
-              onClick={() => setIsAdminMode(false)}
-              variant={!isAdminMode ? "primary" : "secondary"}
-              className="flex items-center space-x-2 shadow-xl"
-              size="lg"
-            >
-              <FaCalculator size={18} />
-              <span>Calculator</span>
-            </Button>
-            <Button
-              onClick={() => setIsAdminMode(true)}
-              variant={isAdminMode ? "primary" : "secondary"}
-              className="flex items-center space-x-2 shadow-xl"
-              size="lg"
-            >
-              <FaCog size={18} />
-              <span>Administration</span>
-            </Button>
-          </div>
         </div>
-
-        {!isAdminMode ? (
-          <div className="grid lg:grid-cols-2 gap-8 xl:gap-12 items-start">
-            {/* Left Column - Category Selection */}
-            <div className="space-y-6">
-              <div className="text-center lg:text-left">
-                <h2 className="text-2xl font-bold text-white mb-4">
-                  Select Category
-                </h2>
-                <p className="text-blue-100 mb-6">
-                  Choose the type of medical examination
-                </p>
-              </div>
-
-              <div className="grid gap-4">
-                {categories.map((category) => (
-                  <Button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    variant={
-                      selectedCategory === category.id ? "primary" : "outline"
-                    }
-                    className="flex items-center justify-start space-x-4 p-6 text-left shadow-lg h-auto"
-                    size="lg"
-                  >
-                    <img
-                      src={category.flag}
-                      className="w-8 h-8 rounded-sm shadow-sm"
-                      alt={category.label}
-                    />
-                    <div>
-                      <div className="font-bold text-lg">{category.label}</div>
-                      <div className="text-sm opacity-80">
-                        {
-                          priceConfig.filter(
-                            (item) => item.category === category.id
-                          ).length
-                        }{" "}
-                        price options
-                      </div>
-                    </div>
-                  </Button>
-                ))}
-              </div>
+        <div className="grid lg:grid-cols-2 gap-8 xl:gap-12 items-start">
+          {/* Left Column - Category Selection */}
+          <div className="space-y-6">
+            <div className="text-center lg:text-left">
+              <h2 className="text-2xl font-bold text-white mb-4">
+                Select Category
+              </h2>
+              <p className="text-blue-100 mb-6">
+                Choose the type of medical examination
+              </p>
             </div>
 
-            {/* Right Column - Price Calculator */}
-            <div className="lg:sticky lg:top-8">
-              <PriceCalculator
-                priceConfig={priceConfig}
-                category={selectedCategory}
-              />
+            <div className="grid gap-4">
+              {categories.map((category) => (
+                <Button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  variant={
+                    selectedCategory === category.id ? "primary" : "outline"
+                  }
+                  className="flex items-center justify-start space-x-4 p-6 text-left shadow-lg h-auto"
+                  size="lg"
+                >
+                  <img
+                    src={category.flag}
+                    className="w-8 h-8 rounded-sm shadow-sm"
+                    alt={category.label}
+                  />
+                  <div>
+                    <div className="font-bold text-lg">{category.label}</div>
+                    <div className="text-sm opacity-80">
+                      {
+                        priceConfig.filter(
+                          (item) => item.category === category.id
+                        ).length
+                      }{" "}
+                      price options
+                    </div>
+                  </div>
+                </Button>
+              ))}
             </div>
           </div>
-        ) : (
-          /* Admin Panel - Full Width */
-          <div className="w-full">
-            <AdminPanel
+
+          {/* Right Column - Price Calculator */}
+          <div className="lg:sticky lg:top-8">
+            <PriceCalculator
               priceConfig={priceConfig}
-              onUpdatePrice={updatePrice}
-              onAddItem={addPriceItem}
-              onRemoveItem={removePriceItem}
-              onResetToDefault={resetToDefault}
+              category={selectedCategory}
             />
           </div>
-        )}
+        </div>
       </div>
     </DefaultLayout>
   );
