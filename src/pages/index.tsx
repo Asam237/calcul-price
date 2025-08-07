@@ -18,7 +18,7 @@ import { useAuth } from "@/hooks/useAuth";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState<
-    "can_imm" | "uk_tb" | "aus_imm"
+    "can_imm" | "uk_tb" | "aus_imm" | "nz_imm"
   >("can_imm");
   const [showInfo, setShowInfo] = useState(false);
   const [isAdminMode, setIsAdminMode] = useState(false);
@@ -50,6 +50,12 @@ const Home = () => {
       id: "aus_imm" as const,
       label: "AUS Immigration",
       flag: "/images/aus.png",
+      color: "from-green-500 to-green-600",
+    },
+    {
+      id: "nz_imm" as const,
+      label: "NZ Immigration",
+      flag: "/images/nz.png",
       color: "from-green-500 to-green-600",
     },
   ];
