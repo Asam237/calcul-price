@@ -11,7 +11,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <>
       <Head>
-        <title>CAN_IMM - UK | Price Calculator</title>
+        <title>Price Calculator | IOM</title>
       </Head>
       <div
         className={cn(EuclidUiDisplay.variable, "min-h-screen flex flex-col")}
