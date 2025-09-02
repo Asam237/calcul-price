@@ -5,20 +5,20 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "can_less_5",
     label: "Less than 5 years",
-    price: 74750,
+    price: 73000,
     category: "can_imm",
   },
-  { id: "can_5_10", label: "5 to 10 years", price: 74750, category: "can_imm" },
+  { id: "can_5_10", label: "5 to 10 years", price: 75800, category: "can_imm" },
   {
     id: "can_11_14",
     label: "11 to 14 years",
-    price: 86000,
+    price: 87050,
     category: "can_imm",
   },
   {
     id: "can_15_plus",
     label: "15 years and above",
-    price: 107000,
+    price: 107825,
     category: "can_imm",
   },
 
@@ -26,41 +26,59 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "uk_less_11",
     label: "Less than 11 years",
-    price: 29000,
+    price: 36500,
     category: "uk_tb",
   },
   {
     id: "uk_11_plus",
     label: "11 years and above",
-    price: 40050,
+    price: 47725,
     category: "uk_tb",
   },
 
   // AUS_IMM Prices
   {
-    id: "aus_11_plus",
-    label: "11 years and above",
-    price: 110400,
+    id: "aus_less_2",
+    label: "Less than 2 years",
+    price: 49975,
+    category: "aus_imm",
+  },
+  {
+    id: "aus_2_11",
+    label: "5 t 10 years",
+    price: 57850,
+    category: "aus_imm",
+  },
+  {
+    id: "aus_11_14",
+    label: "11 to 14 years",
+    price: 61215,
+    category: "aus_imm",
+  },
+  {
+    id: "aus_15_plus",
+    label: "15 years and above",
+    price: 75250,
     category: "aus_imm",
   },
   // NZ_IMM Prices
   {
     id: "nz_less_5",
-    label: "Less than 5 years",
-    price: 74750,
+    label: "Less than 11 years",
+    price: 57845,
     category: "nz_imm",
   },
-  { id: "nz_5_10", label: "5 to 10 years", price: 77625, category: "nz_imm" },
+  // { id: "nz_5_10", label: "5 to 10 years", price: 77625, category: "nz_imm" },
   {
     id: "nz_11_14",
     label: "11 to 14 years",
-    price: 89125,
+    price: 61215,
     category: "nz_imm",
   },
   {
     id: "nz_15_plus",
     label: "15 years and above",
-    price: 110400,
+    price: 75255,
     category: "nz_imm",
   },
 ];
