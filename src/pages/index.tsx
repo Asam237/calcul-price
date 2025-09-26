@@ -84,21 +84,18 @@ const Home = () => {
               />
             </div>
             <div className="flex items-center space-x-3">
-              <button
+              {/* <button
                 onClick={() => setShowInfo(!showInfo)}
                 className="w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
               >
                 <FaExclamation size={16} className="text-white" />
-              </button>
+              </button> */}
 
-              <Link
+              {/* <Link
                 href="/admin"
                 className="group relative w-12 h-12 bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 backdrop-blur-sm border border-purple-300/30 hover:border-purple-300/50 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 shadow-lg overflow-hidden"
               >
-                {/* Animated background */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400/0 to-pink-400/0 group-hover:from-purple-400/20 group-hover:to-pink-400/20 transition-all duration-300"></div>
-
-                {/* Icon with conditional styling */}
                 {isAuthenticated ? (
                   <FaLockOpen
                     size={16}
@@ -110,12 +107,10 @@ const Home = () => {
                     className="text-white relative z-10 group-hover:scale-110 transition-transform duration-300"
                   />
                 )}
-
-                {/* Tooltip */}
                 <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
                   {isAuthenticated ? "Administration" : "Admin Login"}
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
 
