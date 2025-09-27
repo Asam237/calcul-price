@@ -79,7 +79,7 @@ const Home = () => {
             <div className="floating-animation">
               <img
                 src="/images/logo-02.png"
-                alt="OIM Logo"
+                alt="IOM Logo"
                 className="w-auto h-16 lg:h-24 drop-shadow-2xl"
               />
             </div>
@@ -116,7 +116,7 @@ const Home = () => {
 
           <div className="mb-8">
             <h1 className="text-3xl lg:text-5xl font-bold text-white mb-3 drop-shadow-lg">
-              OIM Price Calculator
+              IOM Price Calculator
             </h1>
             <p className="text-blue-100 text-lg lg:text-xl">
               International Organization for Migration
