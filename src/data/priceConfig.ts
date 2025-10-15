@@ -61,7 +61,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     price: 75250,
     category: "aus_imm",
   },
-  // NZ_IMM Prices
+  // NZ_IMM Prices.
   {
     id: "nz_less_5",
     label: "Less than 11 years",
