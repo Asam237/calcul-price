@@ -5,20 +5,20 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "can_less_5",
     label: "Less than 5 years",
-    price: 72605,
+    price: 73650,
     category: "can_imm",
   },
-  { id: "can_5_10", label: "5 to 10 years", price: 75395, category: "can_imm" },
+  { id: "can_5_10", label: "5 to 10 years", price: 76485, category: "can_imm" },
   {
     id: "can_11_14",
     label: "11 to 14 years",
-    price: 86565,
+    price: 87815,
     category: "can_imm",
   },
   {
     id: "can_15_plus",
     label: "15 years and above",
-    price: 107230,
+    price: 108780,
     category: "can_imm",
   },
 
@@ -26,13 +26,13 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "uk_less_11",
     label: "Less than 11 years",
-    price: 36300,
+    price: 36825,
     category: "uk_tb",
   },
   {
     id: "uk_11_plus",
     label: "11 years and above",
-    price: 47470,
+    price: 48155,
     category: "uk_tb",
   },
 
@@ -40,44 +40,44 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "aus_less_2",
     label: "Less than 2 years",
-    price: 49975,
+    price: 50425,
     category: "aus_imm",
   },
   {
     id: "aus_2_11",
     label: "5 t 10 years",
-    price: 57850,
+    price: 58355,
     category: "aus_imm",
   },
   {
     id: "aus_11_14",
     label: "11 to 14 years",
-    price: 61215,
+    price: 61755,
     category: "aus_imm",
   },
   {
     id: "aus_15_plus",
     label: "15 years and above",
-    price: 75250,
+    price: 75920,
     category: "aus_imm",
   },
   // NZ_IMM Prices.
   {
     id: "nz_less_5",
     label: "Less than 11 years",
-    price: 57845,
+    price: 58355,
     category: "nz_imm",
   },
   {
     id: "nz_11_14",
     label: "11 to 14 years",
-    price: 61215,
+    price: 61755,
     category: "nz_imm",
   },
   {
     id: "nz_15_plus",
     label: "15 years and above",
-    price: 75255,
+    price: 75920,
     category: "nz_imm",
   },
 ];
