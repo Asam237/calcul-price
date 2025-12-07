@@ -36,7 +36,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     category: "uk_tb",
   },
 
-  // AUS_IMM Prices
+  // AUS_IMM Prices.
   {
     id: "aus_less_2",
     label: "Less than 2 years",
