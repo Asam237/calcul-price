@@ -22,7 +22,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     category: "can_imm",
   },
 
-  // UK_TB Prices
+  // UK_TB Prices.
   {
     id: "uk_less_11",
     label: "Less than 11 years",
