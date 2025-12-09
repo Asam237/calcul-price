@@ -1,7 +1,7 @@
 import { PriceConfig } from "@/types";
 
 export const defaultPriceConfig: PriceConfig[] = [
-  // CAN_IMM Prices
+  // CAN_IMM Prices.
   {
     id: "can_less_5",
     label: "Less than 5 years",
