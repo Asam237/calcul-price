@@ -597,7 +597,6 @@ export const PriceCalculator = ({
           </Card>
         )}
       </div>
-
       {/* Calculatrice Modal */}
       <Calculator
         isOpen={showCalculator}
