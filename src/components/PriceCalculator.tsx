@@ -19,7 +19,7 @@ interface PriceCalculatorProps {
   category: "can_imm" | "uk_tb" | "aus_imm" | "nz_imm";
 }
 
-// Composant Calculatrice
+// Composant Calculatrice.
 const Calculator = ({
   isOpen,
   onClose,
