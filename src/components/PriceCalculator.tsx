@@ -149,7 +149,7 @@ const Calculator = ({
       } else if (key === "/") {
         inputOperation("÷");
       }
-      // Point décimal
+      // Point décimal.
       else if (key === "." || key === ",") {
         inputDecimal();
       }
