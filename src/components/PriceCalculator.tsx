@@ -153,7 +153,7 @@ const Calculator = ({
       else if (key === "." || key === ",") {
         inputDecimal();
       }
-      // Égal ou Entrée
+      // Égal ou Entrée.
       else if (key === "=" || key === "Enter") {
         performCalculation();
       }
