@@ -139,7 +139,7 @@ const Calculator = ({
       if (/[0-9]/.test(key)) {
         inputNumber(key);
       }
-      // Opérations
+      // Opérations.
       else if (key === "+") {
         inputOperation("+");
       } else if (key === "-") {
