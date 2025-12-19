@@ -157,7 +157,7 @@ const Calculator = ({
       else if (key === "=" || key === "Enter") {
         performCalculation();
       }
-      // Effacer tout (Escape)
+      // Effacer tout (Escape).
       else if (key === "Escape") {
         clearAll();
       }
