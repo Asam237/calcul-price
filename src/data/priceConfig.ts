@@ -5,20 +5,20 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "can_less_5",
     label: "Less than 5 years",
-    price: 73590,
+    price: 72485,
     category: "can_imm",
   },
-  { id: "can_5_10", label: "5 to 10 years", price: 76420, category: "can_imm" },
+  { id: "can_5_10", label: "5 to 10 years", price: 75275, category: "can_imm" },
   {
     id: "can_11_14",
     label: "11 to 14 years",
-    price: 87740,
+    price: 86425,
     category: "can_imm",
   },
   {
     id: "can_15_plus",
     label: "15 years and above",
-    price: 108685,
+    price: 107055,
     category: "can_imm",
   },
 
@@ -26,13 +26,13 @@ export const defaultPriceConfig: PriceConfig[] = [
   {
     id: "uk_less_11",
     label: "Less than 11 years",
-    price: 36795,
+    price: 36245,
     category: "uk_tb",
   },
   {
     id: "uk_11_plus",
     label: "11 years and above",
-    price: 48115,
+    price: 47395,
     category: "uk_tb",
   },
 
