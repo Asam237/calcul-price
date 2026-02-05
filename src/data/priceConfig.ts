@@ -1,7 +1,7 @@
 import { PriceConfig } from "@/types";
 
 export const defaultPriceConfig: PriceConfig[] = [
-  // CAN_IMM Prices.
+  // CAN_IMM Prices for current month.
   {
     id: "can_less_5",
     label: "Less than 5 years",
@@ -22,7 +22,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     category: "can_imm",
   },
 
-  // UK_TB Prices.
+  // UK_TB Prices for current month.
   {
     id: "uk_less_11",
     label: "Less than 11 years",
