@@ -36,7 +36,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     category: "uk_tb",
   },
 
-  // AUS_IMM Prices.
+  // AUS_IMM Prices for current month.
   {
     id: "aus_less_2",
     label: "Less than 2 years",
@@ -61,7 +61,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     price: 75855,
     category: "aus_imm",
   },
-  // NZ_IMM Prices.
+  // NZ_IMM Prices for current month.
   {
     id: "nz_less_5",
     label: "Less than 11 years",
