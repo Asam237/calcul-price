@@ -61,7 +61,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     price: 75855,
     category: "aus_imm",
   },
-  // NZ_IMM Prices for current month.
+  // NZ_IMM Prices for current month (february).
   {
     id: "nz_less_5",
     label: "Less than 11 years",
