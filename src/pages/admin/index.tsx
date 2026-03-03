@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { useAuth } from "@/hooks/useAuth";
 import { usePriceConfig } from "@/hooks/usePriceConfig";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaUser, FaLock, FaKey, FaLockOpen, FaHome } from "react-icons/fa";
@@ -71,7 +72,7 @@ const Admin = () => {
           <div className="text-center mb-8 lg:mb-12">
             <div className="flex items-center justify-center space-x-6 mb-6">
               <div className="floating-animation">
-                <img
+                <Image
                   src="/images/logo-02.png"
                   alt="OIM Logo"
                   className="w-auto h-16 lg:h-24 drop-shadow-2xl"
