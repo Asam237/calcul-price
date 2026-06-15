@@ -22,7 +22,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     category: "can_imm",
   },
 
-  // UK_TB Prices for current month (april).
+  // UK_TB Prices for current month june).
   {
     id: "uk_less_11",
     label: "Less than 11 years",
@@ -36,7 +36,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     category: "uk_tb",
   },
 
-  // AUS_IMM Prices for current month(february).
+  // AUS_IMM Prices for current month(june).
   {
     id: "aus_less_2",
     label: "Less than 2 years",
@@ -61,7 +61,7 @@ export const defaultPriceConfig: PriceConfig[] = [
     price: 75855,
     category: "aus_imm",
   },
-  // NZ_IMM Prices for current month (february).
+  // NZ_IMM Prices for current month (june).
   {
     id: "nz_less_5",
     label: "Less than 11 years",
